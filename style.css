@@ -1,0 +1,212 @@
+* {
+	font-family: "Arial", "proxima nova", sans-serif !important;
+}
+
+.shower {
+	--slide-ratio: calc(16 / 9);
+}
+
+.shower {
+	--color-blue: #4b86c2;
+	--color-blue-lighter: #6799cb;
+	--color-red: #cc0000;
+	--color-yellow: #fafaa2;
+	--color-grey: #585a5e;
+	--color-fill: rgb(88 90 94 / 10%);
+	--color-line: rgb(88 90 94 / 50%);
+	color: black;
+	font: 22px/2 'PT Sans', sans-serif;
+}
+
+.progress::before {
+	background-color: var(--color-blue);
+}
+
+.shower h2 {
+	font-size: 40px;
+	color: black;
+	margin-top: -10px;
+}
+
+.shower h2.shout {
+	font-size: 50px;
+	line-height: 120%;
+}
+
+.shower h2.shout.left {
+	text-align: left;
+	margin-left: 20px;
+}
+
+.fs50 {font-size: 50px !important;}
+.fs60 {font-size: 60px !important;}
+.fs70 {font-size: 70px !important;}
+.fs80 {font-size: 80px !important;}
+
+.slide {
+	padding: 50px;
+}
+
+.vatb {
+	vertical-align: text-bottom;
+}
+
+/* Пагинация */
+.slide::after {
+	background: none;
+	display: block;
+	color: #838383;
+	right: 15px;
+	left: auto;
+	top: 22px;
+	bottom: auto;
+	font-family: "Montserrat", "proxima nova", sans-serif !important;
+	font-size: 18px;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	text-align: center;
+	line-height: 42px;
+
+}
+
+.slide.clear::before {
+	display: none;
+}
+
+.slide.light {
+	background: url("./pictures/page.svg") no-repeat;
+	background-size: contain;
+}
+
+.slide.dark {
+	background: #000000 url("./pictures/page-black.svg") no-repeat;
+	background-size: contain;
+}
+
+.slide.dark h2 {
+	color: #ffffff
+}
+
+
+/* LOGO */
+.logo {
+	display: none;
+	position: absolute;
+	width: 30px;
+	height: 310px;
+	right: 20px;
+	bottom: 30px;
+	top: auto;
+	background: url("./pictures/boost-logo.png") no-repeat;
+	background-size: contain;
+}
+.clear .logo {
+	display: none;
+}
+
+/* СПИСКИ */
+.slide li::before {
+	position: relative;
+	width: 20px;
+	margin-right: 10px;
+	color: #202020;
+}
+
+.clear-list li:before {
+	content: '' !important;
+	width: 0 !important;
+	margin-right: 0;
+}
+
+
+/* MAIN PAGE */
+.slide-first {
+	color: #ffffff;
+	background: #000000 url("./pictures/face.svg") no-repeat;
+	background-size: cover;
+}
+.slide-first .author {
+	font-size: 30px;
+	margin-bottom: -10px;
+}
+.slide-first .company {
+	font-size: 20px;
+}
+
+.slide-first h2 {
+	max-width: 700px;
+	font-size: 35px;
+	color: #ffffff !important;
+	line-height: 130%;
+}
+
+.slide-first .main-title {
+	font-size: 60px;
+	margin-bottom: 20px;
+}
+
+/* END SLIDE */
+.slide-final {
+	color: #ffffff;
+	background: #000000 url("./pictures/end-back.svg") no-repeat;
+	background-size: cover;
+}
+
+.slide-final p{
+	color: #ffffff;
+}
+
+.slide-final h2{
+	color: #ffffff;
+}
+
+.slide-final .slide-text {
+	margin-top: 50px;
+	font-size: 30px;
+}
+
+.slide-final .slide-title {
+	color: #ffffff;
+	top: 150px;
+	font-size: 50px
+}
+
+
+.slide-final .qr {
+	float: right;
+}
+
+
+.slide-final .tg-icon {
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	background: url("./pictures/tg-icon.webp") no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+
+
+.slide-final .tg-text {
+	font-weight: bold;
+	position: absolute;
+	bottom: 20px;
+	left: 50px;
+	font-size: 30px;
+}
+
+/* SECTION */
+
+.section {
+	color: #ffffff;
+	background: #000000 url("./pictures/section.svg") no-repeat;
+	background-size: cover;
+	text-align: left;
+}
+
+.section h2.shout{
+	text-align: left !important;
+	margin-left: 20px;
+	color: #ffffff;
+}
