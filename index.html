@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Уровни зрелости внедрения AI в процессы</title>
+    <title>Уровни зрелости внедрения AI в процессы SDLC</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
@@ -15,12 +15,12 @@
 <body class="shower list">
 
 <header class="caption">
-    <h1>Уровни зрелости внедрения AI в процессы</h1>
+    <h1>Уровни зрелости внедрения AI в процессы SDLC</h1>
 </header>
 
 <section class="slide slide-first clear">
     <h2>
-        <div class="main-title">Уровни зрелости внедрения AI в процессы</div>
+        <div class="main-title">Уровни зрелости внедрения AI в процессы SDLC</div>
     </h2>
 
     <br>
@@ -99,7 +99,7 @@
         <li>Инфраструктуру (IaC, observability)</li>
         <li>Команды (performance reviews, OKR)</li>
     </ul>
-    <p style="margin-top: 20px; font-size: 28px;"><b>А как оценить зрелость внедрения AI?</b></p>
+    <p style="margin-top: 20px; font-size: 28px;"><b>А как оценить зрелость внедрения AI в SDLC?</b></p>
 </section>
 
 <!-- ============================================ -->
@@ -107,15 +107,15 @@
 <!-- ============================================ -->
 
 <section class="slide section">
-    <h2 class="shout">Зачем модель зрелости в AI?</h2>
+    <h2 class="shout">Зачем модель зрелости AI в SDLC?</h2>
 </section>
 
 <section class="slide light">
     <h2>Проблема #1: Скорость изменений</h2>
     <ul>
         <li>Технологии и инструменты меняются каждый месяц</li>
-        <li>GPT-3 → GPT-4 → Claude → Gemini → локальные модели</li>
-        <li>Copilot → Cursor → Claude Code → Devin → ...</li>
+        <li>GPT-3 → GPT-4 → Claude → zAi</li>
+        <li>Copilot → Cursor → Claude Code</li>
         <li>То, что работало вчера — устарело сегодня</li>
     </ul>
 </section>
@@ -155,29 +155,38 @@
 <!-- СЕКЦИЯ: Какой этап автоматизировать -->
 <!-- ============================================ -->
 
-<section class="slide section">
-    <h2 class="shout">Какой этап разработки автоматизировать?</h2>
-</section>
+<!--<section class="slide section">-->
+<!--    <h2 class="shout">Какой этап разработки автоматизировать?</h2>-->
+<!--</section>-->
 
-<section class="slide light">
-    <h2>Этапы разработки и AI</h2>
-    <ul>
-        <li><b>Анализ требований</b> — генерация user stories, acceptance criteria</li>
-        <li><b>Проектирование</b> — архитектурные решения, API design</li>
-        <li><b>Кодирование</b> — автокомплит, генерация кода, рефакторинг</li>
-        <li><b>Code Review</b> — автоматический анализ, suggestions</li>
-        <li><b>Тестирование</b> — генерация тестов, test data</li>
-        <li><b>Документация</b> — генерация docs, комментарии</li>
-        <li><b>DevOps</b> — IaC, troubleshooting, observability</li>
-    </ul>
-</section>
+<!--<section class="slide light">-->
+<!--    <h2>Этапы разработки и AI</h2>-->
+<!--    <ul>-->
+<!--        <li><b>Анализ требований</b> — генерация user stories, acceptance criteria</li>-->
+<!--        <li><b>Проектирование</b> — архитектурные решения, API design</li>-->
+<!--        <li><b>Кодирование</b> — автокомплит, генерация кода, рефакторинг</li>-->
+<!--        <li><b>Code Review</b> — автоматический анализ, suggestions</li>-->
+<!--        <li><b>Тестирование</b> — генерация тестов, test data</li>-->
+<!--        <li><b>Документация</b> — генерация docs, комментарии</li>-->
+<!--        <li><b>DevOps</b> — IaC, troubleshooting, observability</li>-->
+<!--    </ul>-->
+<!--</section>-->
 
 <!-- ============================================ -->
 <!-- СЕКЦИЯ: Модели зрелости AI -->
 <!-- ============================================ -->
 
 <section class="slide section">
-    <h2 class="shout">Обзор моделей зрелости AI</h2>
+    <h2 class="shout">Обзор моделей зрелости AI в SDLC</h2>
+</section>
+
+<section class="slide ">
+    <h2>Модели</h2>
+    <ol>
+        <li>Gartner AI Maturity Model</li>
+        <li>Stanford AI Adoption Model</li>
+        <li>SDLC AI Integration Model (custom)</li>
+    </ol>
 </section>
 
 <section class="slide light">
@@ -192,40 +201,262 @@
     <p style="font-size: 18px; color: var(--color-grey);">*Фокус на бизнес-трансформации</p>
 </section>
 
-<section class="slide light">
-    <h2>Stanford HAI Framework</h2>
-    <ol>
-        <li><b>Exploring</b> — изучение возможностей</li>
-        <li><b>Experimenting</b> — пилотные проекты</li>
-        <li><b>Formalizing</b> — стандарты и governance</li>
-        <li><b>Optimizing</b> — масштабирование и оптимизация</li>
-        <li><b>Transforming</b> — AI-first организация</li>
-    </ol>
-    <p style="font-size: 18px; color: var(--color-grey);">*Академический подход, фокус на governance</p>
+<section class="slide  clear">
+    <h2>Stanford AI Adoption Model</h2>
+    <table style="font-size: 18px; width: 100%; border-collapse: collapse; margin: 10px 0 0;">
+        <tr style="background: var(--color-blue); color: white;">
+            <th style="padding: 12px 8px; text-align: center; width: 50px;">Ур.</th>
+            <th style="padding: 12px; text-align: left; width: 200px;">Название</th>
+            <th style="padding: 12px; text-align: left;">Описание</th>
+        </tr>
+        <tr style="background: rgba(0,0,0,0.03);">
+            <td style="padding: 10px 8px; text-align: center; border-bottom: 1px solid #ddd;"><b>L0</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd;"><b>Без AI</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Инженеры пишут код самостоятельно, AI не используется</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 8px; text-align: center; border-bottom: 1px solid #ddd;"><b>L1</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd;"><b>Точечное использование</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Личная инициатива. AI локально, в кодовой базе не отражается</td>
+        </tr>
+        <tr style="background: rgba(0,0,0,0.03);">
+            <td style="padding: 10px 8px; text-align: center; border-bottom: 1px solid #ddd;"><b>L2</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd;"><b>Систематизированное</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Командный уровень. Промпты и правила версионируются</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 8px; text-align: center; border-bottom: 1px solid #ddd;"><b>L3</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd;"><b>Агентная поддержка</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd;">AI выполняет задачи. Скрипты и агенты в репозитории</td>
+        </tr>
+        <tr style="background: rgba(0,0,0,0.03);">
+            <td style="padding: 10px 8px; text-align: center;"><b>L4</b></td>
+            <td style="padding: 10px;"><b>Оркестрированная агентность</b></td>
+            <td style="padding: 10px;">AI управляет процессом. Пайплайны из нескольких AI</td>
+        </tr>
+    </table>
 </section>
 
 <section class="slide light">
-    <h2>Разработчико-центристская модель</h2>
+    <h2>SDLC AI Integration Model (custom)</h2>
     <ol>
-        <li><b>Level 0</b> — Не используют AI вообще</li>
-        <li><b>Level 1</b> — ChatGPT в браузере, copy-paste</li>
-        <li><b>Level 2</b> — IDE-интеграция (Copilot, Cursor)</li>
-        <li><b>Level 3</b> — AI-агенты в workflow (Claude Code, Aider)</li>
-        <li><b>Level 4</b> — Автономные агенты, CI/CD интеграция</li>
-        <li><b>Level 5</b> — AI-first разработка, vibe coding</li>
+        <li><b>Вне процесса</b> — LLM-чаты отдельно от IDE</li>
+        <li><b>Точечный ассистент</b> — автокомплит, inline-AI</li>
+        <li><b>IDE-агенты</b> — агент выполняет задачи</li>
+        <li><b>Background-агенты</b> — работа в фоне, CI/CD</li>
+        <li><b>Сквозные SDLC-агенты</b> — от story до релиза</li>
     </ol>
 </section>
 
 <section class="slide light">
-    <h2>Проблемы на каждом этапе</h2>
+    <h2>Уровень 1: Вне процесса</h2>
     <ul>
-        <li><b>Level 1→2:</b> Лицензии, безопасность данных, обучение</li>
-        <li><b>Level 2→3:</b> Изменение процессов, доверие к AI</li>
-        <li><b>Level 3→4:</b> Инфраструктура, автоматизация, контроль качества</li>
-        <li><b>Level 4→5:</b> Культура, метрики, переосмысление ролей</li>
+        <li><b>Состояние:</b> LLM-чаты живут отдельно от IDE и CI</li>
+        <li><b>Инструменты:</b> ChatGPT, Claude, Gemini (web)</li>
+        <li><b>Ограничения:</b> Нет связи с кодом, репозиториями, трекером</li>
+        <li><b>Use cases:</b> Copy-paste, "напиши функцию", объяснения</li>
     </ul>
-    <p style="margin-top: 20px; color: var(--color-red);">На каждом переходе — свои барьеры!</p>
+    <p style="margin-top: 20px;"><b>Барьер →</b> Контекст теряется, много ручной работы</p>
 </section>
+
+<section class="slide light">
+    <h2>Уровень 2: Точечный ассистент</h2>
+    <ul>
+        <li><b>Состояние:</b> Автокомплит, explain/fix, генерация фрагментов</li>
+        <li><b>Инструменты:</b> GitHub Copilot, Codeium, Tabnine, встроенные чаты</li>
+        <li><b>SDLC:</b> Кодирование ускоряется, меньше boilerplate</li>
+        <li><b>Use cases:</b> Автодополнение, генерация тестов, docstrings</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2>Уровень 3: IDE-агенты (task-level)</h2>
+    <ul>
+        <li><b>Состояние:</b> Агент понимает задачу и сам вызывает операции IDE</li>
+        <li><b>Инструменты:</b> Cursor Composer, Claude Code, Aider, Windsurf</li>
+        <li><b>SDLC:</b> Рефакторинг, фичи целиком, миграции</li>
+        <li><b>Use cases:</b> "Обнови X", "Сделай миграцию", "Добавь API"</li>
+    </ul>
+    <p style="margin-top: 10px;"><b>Важно:</b> Разработчик остаётся в цикле — ревьюит, откатывает, правит</p>
+<!--    <p style="margin-top: 10px;"><b>Барьер →</b> Доверие, инфраструктура для фоновой работы</p>-->
+</section>
+
+<section class="slide light">
+    <h2>Уровень 4: Background / remote-агенты</h2>
+    <ul>
+        <li><b>Состояние:</b> Агенты работают в фоне или удалённо</li>
+        <li><b>Инструменты:</b> Codex, Devin, OpenHands, GitHub Actions + AI</li>
+        <li><b>SDLC:</b> Массовые правки, линтинг, миграции, документация</li>
+        <li><b>Интеграция:</b> CI/CD + трекер — агент сам поднимает PR, пишет отчёты</li>
+    </ul>
+
+    <p>Определенный уровень декомпозиции задач, быстрый фидбек, нагрузка на аналитиков.</p>
+
+<!--    <p style="margin-top: 10px;"><b>Барьер →</b> Не все задачи подходят, нужно мелкое дробление</p>-->
+</section>
+
+<section class="slide light">
+    <h2>Нюансы уровня 4</h2>
+    <ul>
+        <li>Не все задачи агенты могут качественно реализовать</li>
+        <li>Требуется более мелкое дробление задач</li>
+        <li>Потолок у background-агента ниже, чем у локального (L3)</li>
+        <li>Аналитики устают отвечать на уточняющие вопросы</li>
+        <li>Ревью разработчиков остаётся обязательным</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2>Уровень 5: Сквозные SDLC-агенты</h2>
+    <ul>
+        <li><b>Состояние:</b> Мультиагентная система на весь цикл</li>
+        <li><b>Покрытие:</b> От user story до релиза и мониторинга</li>
+        <li><b>Роль человека:</b> Задаёт цели, агенты координируются сами</li>
+    </ul>
+    <p style="margin-top: 20px; color: var(--color-blue);"><b>Это горизонт, а не реальность сегодня</b></p>
+    <p style="font-size: 20px;">Целевое состояние индустрии, к которому движемся</p>
+</section>
+
+<section class="slide light">
+    <h2>Сравнение моделей, сильные и слабые стороны</h2>
+    @todo
+    <ul>
+        <li>Слабые стороны</li>
+        <li>Две последние модели говорят о том, что целевой этап это уменьшение</li>
+        <li>Преимущество перед Capability моделями (количество автоматизированных процессов)</li>
+    </ul>
+</section>
+
+<!--https://cloud.google.com/blog/products/ai-machine-learning/introducing-doras-inaugural-ai-capabilities-model-->
+
+<section class="slide light">
+    <h2>Что такое быть на каком-то уровне? (вопрос в зал)</h2>
+    <ol>
+        <li><b>Вне процесса</b> — LLM-чаты отдельно от IDE</li>
+        <li><b>Точечный ассистент</b> — автокомплит, inline-AI</li>
+        <li><b>IDE-агенты</b> — агент выполняет задачи</li>
+        <li><b>Background-агенты</b> — работа в фоне, CI/CD</li>
+        <li><b>Сквозные SDLC-агенты</b> — от story до релиза</li>
+    </ol>
+</section>
+
+
+
+<section class="slide light">
+    <h2>Квантовый скачок при 100% adoption</h2>
+    <blockquote style="font-size: 24px; line-height: 1.6; padding-left: 20px; margin: 20px 0;">
+        "Разница между организацией, где 90% инженеров используют AI, и организацией со 100% adoption — это не 10%, а <b>10x</b>."
+    </blockquote>
+    <ul style="margin-top: 20px;">
+        <li>Если 10% команды работает по-старому — вся организация откатывается</li>
+        <li>Физика разработки меняется только при полном переходе</li>
+    </ul>
+    <p style="margin-top: 30px; font-size: 18px; color: var(--color-grey);">— Dan Shipper, CEO Every</p>
+</section>
+
+<!--<section class="slide light">-->
+<!--    <h2>Проблемы на каждом переходе</h2>-->
+<!--    <ul>-->
+<!--        <li><b>1→2:</b> Лицензии, безопасность, обучение команды</li>-->
+<!--        <li><b>2→3:</b> Смена парадигмы: от подсказок к делегированию</li>-->
+<!--        <li><b>3→4:</b> Инфраструктура, дробление задач, контроль качества</li>-->
+<!--        <li><b>4→5:</b> Архитектура мультиагентов, governance, доверие</li>-->
+<!--    </ul>-->
+<!--    <p style="margin-top: 20px; color: var(&#45;&#45;color-red);">На каждом переходе — свои барьеры!</p>-->
+<!--</section>-->
+
+<!-- ============================================ -->
+<!-- СЕКЦИЯ: Метрики -->
+<!-- ============================================ -->
+
+<!--<section class="slide light">-->
+<!--    <h2>Как измерять? DORA + AI метрики</h2>-->
+<!--    <ul>-->
+<!--        <li><b>Deployment Frequency</b> — как часто деплоим (↑ с AI?)</li>-->
+<!--        <li><b>Lead Time for Changes</b> — время от коммита до прода</li>-->
+<!--        <li><b>Change Failure Rate</b> — % неудачных деплоев</li>-->
+<!--        <li><b>Time to Restore</b> — время восстановления после сбоя</li>-->
+<!--    </ul>-->
+<!--    <p style="margin-top: 15px; color: var(&#45;&#45;color-blue);"><b>+ AI-специфичные метрики</b></p>-->
+<!--</section>-->
+
+<!--<section class="slide light">-->
+<!--    <h2>AI-специфичные метрики</h2>-->
+<!--    <ul>-->
+<!--        <li><b>AI Acceptance Rate</b> — % принятых AI-suggestions</li>-->
+<!--        <li><b>AI-assisted Code %</b> — доля кода, написанного с AI</li>-->
+<!--        <li><b>Time Saved</b> — экономия времени на задачу</li>-->
+<!--        <li><b>Rework Rate</b> — сколько AI-кода переписывается</li>-->
+<!--        <li><b>Context Switch Reduction</b> — меньше переключений браузер↔IDE</li>-->
+<!--    </ul>-->
+<!--</section>-->
+
+<!-- ============================================ -->
+<!-- СЕКЦИЯ: AI Coverage -->
+<!-- ============================================ -->
+
+<!--<section class="slide light">-->
+<!--    <h2>AI Coverage по этапам SDLC</h2>-->
+<!--    <table style="font-size: 17px; width: 100%;">-->
+<!--        <tr>-->
+<!--            <th>Этап SDLC</th>-->
+<!--            <th>L1</th>-->
+<!--            <th>L2</th>-->
+<!--            <th>L3</th>-->
+<!--            <th>L4</th>-->
+<!--            <th style="color: var(&#45;&#45;color-grey);">L5*</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>Требования</td>-->
+<!--            <td>◐</td>-->
+<!--            <td>◐</td>-->
+<!--            <td>◐</td>-->
+<!--            <td>●</td>-->
+<!--            <td style="color: var(&#45;&#45;color-grey);">●</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>Проектирование</td>-->
+<!--            <td>◔</td>-->
+<!--            <td>◔</td>-->
+<!--            <td>◐</td>-->
+<!--            <td>●</td>-->
+<!--            <td style="color: var(&#45;&#45;color-grey);">●</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>Кодирование</td>-->
+<!--            <td>◐</td>-->
+<!--            <td>●</td>-->
+<!--            <td>●</td>-->
+<!--            <td>●</td>-->
+<!--            <td style="color: var(&#45;&#45;color-grey);">●</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>Code Review</td>-->
+<!--            <td>○</td>-->
+<!--            <td>◔</td>-->
+<!--            <td>◐</td>-->
+<!--            <td>●</td>-->
+<!--            <td style="color: var(&#45;&#45;color-grey);">●</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>Тестирование</td>-->
+<!--            <td>◔</td>-->
+<!--            <td>◐</td>-->
+<!--            <td>●</td>-->
+<!--            <td>●</td>-->
+<!--            <td style="color: var(&#45;&#45;color-grey);">●</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>DevOps/Релиз</td>-->
+<!--            <td>○</td>-->
+<!--            <td>○</td>-->
+<!--            <td>◔</td>-->
+<!--            <td>●</td>-->
+<!--            <td style="color: var(&#45;&#45;color-grey);">●</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <p style="font-size: 14px; margin-top: 10px;">○ нет | ◔ минимально | ◐ частично | ● полноценно &nbsp;&nbsp; <span style="color: var(&#45;&#45;color-grey);">*L5 — целевое состояние</span></p>-->
+<!--</section>-->
 
 <!-- ============================================ -->
 <!-- СЕКЦИЯ: Интерактив -->
@@ -238,20 +469,18 @@
 <section class="slide light">
     <h2>Голосование: на каком вы уровне?</h2>
     <ol>
-        <li><b>Level 0</b> — Не использую AI в работе</li>
-        <li><b>Level 1</b> — ChatGPT/Claude в браузере</li>
-        <li><b>Level 2</b> — Copilot/Cursor в IDE</li>
-        <li><b>Level 3</b> — AI-агенты (Claude Code, Aider)</li>
-        <li><b>Level 4</b> — Автоматизация с AI в CI/CD</li>
-        <li><b>Level 5</b> — AI-first подход</li>
+        <li><b>Уровень 1</b> — LLM-чаты вне IDE (ChatGPT, Claude web)</li>
+        <li><b>Уровень 2</b> — Автокомплит в IDE (Copilot, Codeium)</li>
+        <li><b>Уровень 3</b> — IDE-агенты (Cursor, Claude Code, Aider)</li>
+        <li><b>Уровень 4</b> — Background-агенты, CI/CD интеграция</li>
+        <li><b>Уровень 5</b> — Сквозные SDLC-агенты (пока теория)</li>
     </ol>
 </section>
 
 <section class="slide light">
     <h2>Обсуждение кейсов</h2>
     <ul>
-        <li>Кто продвинулся дальше всего?</li>
-        <li>Какие <b>кейсы использования</b> у вас?</li>
+        <li>Кто на 1/2/3/4 уровне?</li>
         <li>Какие <b>сложности</b> возникали?</li>
         <li>Какие <b>проблемы</b> при переходе на следующий уровень?</li>
     </ul>
@@ -259,15 +488,20 @@
 </section>
 
 <section class="slide light">
-    <h2>Типичные проблемы перехода</h2>
-    <ul>
-        <li><b>Безопасность:</b> утечка кода, секреты в промптах</li>
-        <li><b>Качество:</b> галлюцинации, неоптимальный код</li>
-        <li><b>Процессы:</b> code review AI-кода, ответственность</li>
-        <li><b>Культура:</b> сопротивление, страх замены</li>
-        <li><b>Метрики:</b> как измерить пользу?</li>
-    </ul>
+    <h2>Обсуждение моделей</h2>
+    <p>Кажется что модели нужно обсуждать с экспертами.</p>
 </section>
+
+<!--<section class="slide light">-->
+<!--    <h2>Типичные проблемы перехода</h2>-->
+<!--    <ul>-->
+<!--        <li><b>Безопасность:</b> утечка кода, секреты в промптах</li>-->
+<!--        <li><b>Качество:</b> галлюцинации, неоптимальный код</li>-->
+<!--        <li><b>Процессы:</b> code review AI-кода, ответственность</li>-->
+<!--        <li><b>Культура:</b> сопротивление, страх замены</li>-->
+<!--        <li><b>Метрики:</b> как измерить пользу?</li>-->
+<!--    </ul>-->
+<!--</section>-->
 
 <!-- ============================================ -->
 <!-- СЕКЦИЯ: Выводы -->
@@ -281,10 +515,10 @@
     <h2>Выводы</h2>
     <ul>
         <li>Модель зрелости помогает понять "где мы" и "куда идём"</li>
-        <li>AI меняется быстро — нужны референсы и best practices</li>
-        <li>Разработчико-центристская модель ближе к практике</li>
-        <li>На каждом переходе — свои барьеры</li>
-        <li>Учимся у тех, кто уже прошёл путь</li>
+        <li>5 уровней: от чатов вне IDE до сквозных SDLC-агентов</li>
+        <li>Уровень 5 — это горизонт, уровни 3-4 — реальность сегодня</li>
+        <li>На каждом переходе — свои барьеры и нюансы</li>
+        <li>Background-агенты требуют мелкого дробления задач</li>
     </ul>
 </section>
 
