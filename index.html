@@ -55,18 +55,236 @@
 
 <section class="slide light">
     <h2>О чем поговорим</h2>
+    <ol>
+        <li>Что такое модели зрелости, какие они бывают в AI SDLC</li>
+        <li>Попробуем оценить себя в этих моделях</li>
+        <li>Обсудим сложности переходов от базовых этапов до продвинутых</li>
+    </ol>
+</section>
+
+<!-- ============================================ -->
+<!-- СЕКЦИЯ: Зачем нужна модель зрелости -->
+<!-- ============================================ -->
+
+<section class="slide section">
+    <h2 class="shout">Зачем нужна модель зрелости?</h2>
+</section>
+
+<section class="slide light">
+    <h2>Что такое модель зрелости?</h2>
     <ul>
+        <li>Фреймворк для оценки текущего состояния</li>
+        <li>Понятные уровни развития (от хаоса к совершенству)</li>
+        <li>Референсные точки: "где мы" и "куда идём"</li>
+        <li>Roadmap для развития</li>
     </ul>
 </section>
+
+<section class="slide light">
+    <h2>Примеры моделей зрелости</h2>
+    <ul>
+        <li><b>Kanban Maturity Model</b> — 6 уровней организационной зрелости</li>
+        <li><b>DevOps Maturity Model</b> — от ручного деплоя до GitOps</li>
+        <li><b>CMMI</b> — Capability Maturity Model Integration</li>
+        <li><b>Technology Radar</b> (ThoughtWorks) — Adopt/Trial/Assess/Hold</li>
+        <li><b>Data Management Maturity</b> — от Excel до Data Mesh</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2>Мы научились оценивать...</h2>
+    <ul>
+        <li>Процессы разработки (Agile, DevOps)</li>
+        <li>Качество кода (статический анализ, code review)</li>
+        <li>Инфраструктуру (IaC, observability)</li>
+        <li>Команды (performance reviews, OKR)</li>
+    </ul>
+    <p style="margin-top: 20px; font-size: 28px;"><b>А как оценить зрелость внедрения AI?</b></p>
+</section>
+
+<!-- ============================================ -->
+<!-- СЕКЦИЯ: Зачем модель зрелости в AI -->
+<!-- ============================================ -->
+
+<section class="slide section">
+    <h2 class="shout">Зачем модель зрелости в AI?</h2>
+</section>
+
+<section class="slide light">
+    <h2>Проблема #1: Скорость изменений</h2>
+    <ul>
+        <li>Технологии и инструменты меняются каждый месяц</li>
+        <li>GPT-3 → GPT-4 → Claude → Gemini → локальные модели</li>
+        <li>Copilot → Cursor → Claude Code → Devin → ...</li>
+        <li>То, что работало вчера — устарело сегодня</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2>Проблема #2: Непонятно что работает</h2>
+    <ul>
+        <li>Какие практики реально дают результат?</li>
+        <li>Много хайпа, мало проверенных кейсов</li>
+        <li>Сложно отделить маркетинг от реальной пользы</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2>Проблема #3: Нужны референсы</h2>
+    <p>Модель зрелости подразумевает:</p>
+    <ul>
+        <li>Есть компании на каждом уровне</li>
+        <li>Можно смотреть на лидеров как на референс</li>
+        <li>Понятен путь от уровня к уровню</li>
+        <li>Не нужно изобретать велосипед</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2>Проблема #4: Где я сейчас?</h2>
+    <ul>
+        <li>Понять текущий уровень развития</li>
+        <li>Построить roadmap до следующего уровня</li>
+        <li>Определить конкретные шаги</li>
+        <li>Измерить прогресс</li>
+    </ul>
+    <p style="margin-top: 20px; color: var(--color-blue);"><b>Открытые вопросы: метрики, бенчмарки, best practices</b></p>
+</section>
+
+<!-- ============================================ -->
+<!-- СЕКЦИЯ: Какой этап автоматизировать -->
+<!-- ============================================ -->
+
+<section class="slide section">
+    <h2 class="shout">Какой этап разработки автоматизировать?</h2>
+</section>
+
+<section class="slide light">
+    <h2>Этапы разработки и AI</h2>
+    <ul>
+        <li><b>Анализ требований</b> — генерация user stories, acceptance criteria</li>
+        <li><b>Проектирование</b> — архитектурные решения, API design</li>
+        <li><b>Кодирование</b> — автокомплит, генерация кода, рефакторинг</li>
+        <li><b>Code Review</b> — автоматический анализ, suggestions</li>
+        <li><b>Тестирование</b> — генерация тестов, test data</li>
+        <li><b>Документация</b> — генерация docs, комментарии</li>
+        <li><b>DevOps</b> — IaC, troubleshooting, observability</li>
+    </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- СЕКЦИЯ: Модели зрелости AI -->
+<!-- ============================================ -->
+
+<section class="slide section">
+    <h2 class="shout">Обзор моделей зрелости AI</h2>
+</section>
+
+<section class="slide light">
+    <h2>Gartner AI Maturity Model</h2>
+    <ol>
+        <li><b>Awareness</b> — знаем что AI существует</li>
+        <li><b>Active</b> — эксперименты, пилоты</li>
+        <li><b>Operational</b> — AI в продакшене</li>
+        <li><b>Systemic</b> — AI интегрирован в процессы</li>
+        <li><b>Transformational</b> — AI меняет бизнес-модель</li>
+    </ol>
+    <p style="font-size: 18px; color: var(--color-grey);">*Фокус на бизнес-трансформации</p>
+</section>
+
+<section class="slide light">
+    <h2>Stanford HAI Framework</h2>
+    <ol>
+        <li><b>Exploring</b> — изучение возможностей</li>
+        <li><b>Experimenting</b> — пилотные проекты</li>
+        <li><b>Formalizing</b> — стандарты и governance</li>
+        <li><b>Optimizing</b> — масштабирование и оптимизация</li>
+        <li><b>Transforming</b> — AI-first организация</li>
+    </ol>
+    <p style="font-size: 18px; color: var(--color-grey);">*Академический подход, фокус на governance</p>
+</section>
+
+<section class="slide light">
+    <h2>Разработчико-центристская модель</h2>
+    <ol>
+        <li><b>Level 0</b> — Не используют AI вообще</li>
+        <li><b>Level 1</b> — ChatGPT в браузере, copy-paste</li>
+        <li><b>Level 2</b> — IDE-интеграция (Copilot, Cursor)</li>
+        <li><b>Level 3</b> — AI-агенты в workflow (Claude Code, Aider)</li>
+        <li><b>Level 4</b> — Автономные агенты, CI/CD интеграция</li>
+        <li><b>Level 5</b> — AI-first разработка, vibe coding</li>
+    </ol>
+</section>
+
+<section class="slide light">
+    <h2>Проблемы на каждом этапе</h2>
+    <ul>
+        <li><b>Level 1→2:</b> Лицензии, безопасность данных, обучение</li>
+        <li><b>Level 2→3:</b> Изменение процессов, доверие к AI</li>
+        <li><b>Level 3→4:</b> Инфраструктура, автоматизация, контроль качества</li>
+        <li><b>Level 4→5:</b> Культура, метрики, переосмысление ролей</li>
+    </ul>
+    <p style="margin-top: 20px; color: var(--color-red);">На каждом переходе — свои барьеры!</p>
+</section>
+
+<!-- ============================================ -->
+<!-- СЕКЦИЯ: Интерактив -->
+<!-- ============================================ -->
+
+<section class="slide section">
+    <h2 class="shout">Интерактив</h2>
+</section>
+
+<section class="slide light">
+    <h2>Голосование: на каком вы уровне?</h2>
+    <ol>
+        <li><b>Level 0</b> — Не использую AI в работе</li>
+        <li><b>Level 1</b> — ChatGPT/Claude в браузере</li>
+        <li><b>Level 2</b> — Copilot/Cursor в IDE</li>
+        <li><b>Level 3</b> — AI-агенты (Claude Code, Aider)</li>
+        <li><b>Level 4</b> — Автоматизация с AI в CI/CD</li>
+        <li><b>Level 5</b> — AI-first подход</li>
+    </ol>
+</section>
+
+<section class="slide light">
+    <h2>Обсуждение кейсов</h2>
+    <ul>
+        <li>Кто продвинулся дальше всего?</li>
+        <li>Какие <b>кейсы использования</b> у вас?</li>
+        <li>Какие <b>сложности</b> возникали?</li>
+        <li>Какие <b>проблемы</b> при переходе на следующий уровень?</li>
+    </ul>
+    <p style="margin-top: 30px; font-size: 24px;"><i>Давайте соберем реальный опыт из зала!</i></p>
+</section>
+
+<section class="slide light">
+    <h2>Типичные проблемы перехода</h2>
+    <ul>
+        <li><b>Безопасность:</b> утечка кода, секреты в промптах</li>
+        <li><b>Качество:</b> галлюцинации, неоптимальный код</li>
+        <li><b>Процессы:</b> code review AI-кода, ответственность</li>
+        <li><b>Культура:</b> сопротивление, страх замены</li>
+        <li><b>Метрики:</b> как измерить пользу?</li>
+    </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- СЕКЦИЯ: Выводы -->
+<!-- ============================================ -->
 
 <section class="slide section">
     <h2 class="shout">Выводы</h2>
 </section>
 
-<section class="slide">
+<section class="slide light">
     <h2>Выводы</h2>
     <ul>
-       текстовый поиск bm25 будет работать лучше</li>
+        <li>Модель зрелости помогает понять "где мы" и "куда идём"</li>
+        <li>AI меняется быстро — нужны референсы и best practices</li>
+        <li>Разработчико-центристская модель ближе к практике</li>
+        <li>На каждом переходе — свои барьеры</li>
+        <li>Учимся у тех, кто уже прошёл путь</li>
     </ul>
 </section>
 
