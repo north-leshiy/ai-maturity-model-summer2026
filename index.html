@@ -1,35 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shower Presentation Engine</title>
+    <title>Уровни зрелости внедрения AI в процессы</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="shortcut icon" href="./favicon.png">
+    <link rel="icon" type="icon" href="./favicon.png">
     <style>
-        .shower {
-            --slide-ratio: calc(16 / 9);
-        }
+
     </style>
 </head>
 <body class="shower list">
 
-    <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
-    </header>
+<header class="caption">
+    <h1>Уровни зрелости внедрения AI в процессы</h1>
+</header>
 
-    <section class="slide">
-        <!-- Create your first slide -->
-    </section>
+<section class="slide slide-first clear">
+    <h2>
+        <div class="main-title">Уровни зрелости внедрения AI в процессы</div>
+    </h2>
 
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
+    <br>
+    <br>
+    <p class="author">Поддубный Иван</p>
+    <p class="company">CTO Вебпрактик</p>
+</section>
 
-    <div class="progress"></div>
+<section class="slide light">
+    <h2>Кто я 👨‍💻</h2>
+    <ol>
+        <li>15+ лет в IT (web). Прошел путь fullstack, teamlead</li>
+        <li>Работаю CTO в Вебпрактик (150+)</li>
+        <li>Член программного комитета:
+            <ul>
+                <li>TechLead Conf</li>
+                <li>CTO Conf</li>
+                <li>Podlodka Crew</li>
+                <li>ПыхКонф</li>
+            </ul>
+        </li>
+        <li>Организатор Ростовского PHP сообщества (~500 человек)</li>
+        <li>Люблю Linux, open source</li>
+    </ol>
 
-    <script src="node_modules/@shower/core/dist/shower.js"></script>
-    <!-- Copyright © 2026 Yours Truly, Famous Inc. -->
+</section>
 
+<section class="slide clear">
+    <h2 style="font-size: 37px;">Вебпрактик &mdash; веб-интегратор для корпораций</h2>
+    <img class="cover" src="pictures/clients.svg" alt="">
+</section>
+
+<section class="slide light">
+    <h2>О чем поговорим</h2>
+    <ul>
+    </ul>
+</section>
+
+<section class="slide section">
+    <h2 class="shout">Выводы</h2>
+</section>
+
+<section class="slide">
+    <h2>Выводы</h2>
+    <ul>
+       текстовый поиск bm25 будет работать лучше</li>
+    </ul>
+</section>
+
+<section class="slide slide-final clear">
+    <h2 style="font-size: 45px;">Пожалуйста, оставьте <br> свой отзыв!</h2>
+
+    <br>
+    <div style="line-height: 130%; font-size: 25px;"><b>Поддубный Иван</b></div>
+    <div style="line-height: 130%;">CTO Вебпрактик</div>
+
+
+    <img
+        style="
+                margin-right: 30px;
+                margin-top: 30px;
+            "
+        class="place top right"
+        src="pictures/qr-code.svg"
+        width="300"
+        alt="">
+
+    <img
+        style="
+                margin-left: 30px;
+                margin-bottom: 30px;
+                width: 200px;
+            "
+        class="place left bottom"
+        src="pictures/qr-techlead-stream.png"
+        alt="">
+</section>
+
+
+
+<footer class="badge">
+    <a href="https://github.com/north-leshiy/rag-techlead">Fork me on GitHub</a>
+</footer>
+
+<div class="progress"></div>
+<script src="node_modules/@shower/core/dist/shower.js"></script>
 </body>
 </html>
