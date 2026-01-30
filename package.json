@@ -7,6 +7,12 @@
     "bundle": "shower bundle",
     "publish": "shower publish"
   },
+  "dependencies": {
+    "@shower/ribbon": "^3.5.1",
+    "@shower/core": "^3.3.0",
+    "@shower/material": "^2.3.0"
+
+  },
   "devDependencies": {
     "@shower/cli": "^0.3.1"
   }
