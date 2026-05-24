@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Уровни зрелости AI в SDLC 2026</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="shortcut icon" href="./favicon.png">
+    <link rel="icon" type="icon" href="./favicon.png">
+    <style>
+        .badge-level {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 3px 12px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+        .badge-level.l2 { background: #4b86c2; }
+        .badge-level.l3 { background: #6f00ff; }
+        .badge-level.l4 { background: #cc0000; }
+
+        .infra-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            margin-top: 10px;
+            font-size: 19px;
+            line-height: 1.5;
+        }
+        .infra-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .infra-icon {
+            font-size: 18px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .nail-list li {
+            color: #cc0000;
+        }
+        .nail-list li::before {
+            color: #cc0000 !important;
+        }
+
+        .antipattern-list li {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .antipattern-list li strong {
+            color: #cc0000;
+        }
+
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+        .cost-table th {
+            padding: 10px 14px;
+            text-align: left;
+            background: #000;
+            color: #fff;
+        }
+        .cost-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        .cost-table tr:nth-child(even) td {
+            background: rgba(0,0,0,0.04);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .matrix-table th {
+            padding: 10px 10px;
+            background: linear-gradient(90deg, #6f00ff 0%, #000 100%);
+            color: #fff;
+            text-align: left;
+        }
+        .matrix-table td {
+            padding: 9px 10px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: middle;
+        }
+        .matrix-table tr:nth-child(even) td { background: rgba(0,0,0,0.04); }
+        .matrix-table .lvl { font-weight: bold; font-size: 20px; text-align: center; }
+        .matrix-table .focus { background: rgba(111,0,255,0.08) !important; }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .col-box {
+            background: rgba(0,0,0,0.04);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .col-box h3 {
+            font-size: 20px;
+            margin: 0 0 10px;
+            color: #000;
+        }
+        .col-box ul {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .note {
+            font-size: 17px;
+            color: var(--color-grey);
+            margin-top: 12px;
+        }
+
+        .highlight-box {
+            background: rgba(111,0,255,0.08);
+            border-left: 4px solid #6f00ff;
+            padding: 12px 16px;
+            margin-top: 16px;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .warning-box {
+            background: rgba(204,0,0,0.07);
+            border-left: 4px solid #cc0000;
+            padding: 12px 16px;
+            margin-top: 16px;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .metric-big {
+            font-size: 60px;
+            font-weight: bold;
+            color: #6f00ff;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Уровни зрелости AI в SDLC 2026</h1>
+</header>
+
+<!-- ========================= TITLE ========================= -->
+<section class="slide slide-first clear">
+    <h2>
+        <div class="main-title">Уровни зрелости<br>AI в SDLC</div>
+    </h2>
+    <br>
+    <br>
+    <p class="author">Поддубный Иван</p>
+    <p class="company">CTO Вебпрактик</p>
+    <div>
+        <img class="main-smalltech-logo place right top" src="pictures/smalltech.svg" width="250" alt="">
+    </div>
+</section>
+
+<!-- ========================= КТО Я ========================= -->
+<section class="slide light">
+    <h2>Кто я</h2>
+    <ol>
+        <li>15+ лет в IT. Прошёл путь fullstack → teamlead → CTO</li>
+        <li>CTO в Вебпрактик (150+)</li>
+        <li>Программный комитет: TechLead Conf, CTO Conf, Podlodka Crew, ПыхКонф</li>
+        <li>Организатор Ростовского PHP-сообщества (~500 человек)</li>
+        <li>Активно трансформирую процессы SDLC у себя в компании</li>
+    </ol>
+</section>
+
+<!-- ========================= ПРОБЛЕМАТИКА ========================= -->
+<section class="slide light">
+    <h2>Ландшафт сегодня</h2>
+    <div style="display: flex; align-items: center; gap: 0; margin: 20px 0 10px; font-size: 19px;">
+        <div style="text-align:center; width:180px; padding:16px 10px; background:#f0f0f0; border-radius:6px 0 0 6px;">
+            <div style="font-size:32px;">😴</div>
+            <div style="margin-top:6px; font-weight:bold;">Только на старте</div>
+            <div style="font-size:15px; color:#666; margin-top:4px;">Чат, copy-paste,<br>нет системы</div>
+        </div>
+        <div style="flex:1; height:4px; background: linear-gradient(90deg, #ccc 0%, #6f00ff 100%);"></div>
+        <div style="text-align:center; width:180px; padding:16px 10px; background: rgba(111,0,255,0.1); border-radius:0 6px 6px 0;">
+            <div style="font-size:32px;">🚀</div>
+            <div style="margin-top:6px; font-weight:bold;">Уже в космосе</div>
+            <div style="font-size:15px; color:#666; margin-top:4px;">Агенты, облако,<br>70% задач без HITL</div>
+        </div>
+    </div>
+    <p style="font-size: 21px; margin-top: 18px;">
+        Сильная неоднородность — в зале сегодня есть и те, и другие.<br>
+        <b>Как вообще понять, где ты находишься?</b>
+    </p>
+</section>
+
+<section class="slide light">
+    <h2>Зачем нужна система ориентиров</h2>
+    <ul>
+        <li>Понять, <b>где ты сейчас</b></li>
+        <li>Увидеть, <b>что вообще возможно</b> — и есть ли смысл двигаться дальше</li>
+        <li>Принимать <b>осознанные архитектурные и организационные решения</b></li>
+    </ul>
+    <div class="highlight-box">
+        Главный вопрос не «как внедрить AI», а «какие решения сейчас<br>
+        определят, будет переход к следующему уровню эволюцией или переписыванием».
+    </div>
+</section>
+
+
+<!-- ========================= SECTION: ПРОБЛЕМА ========================= -->
+<!--<section class="slide section">-->
+<!--    <h2 class="shout">Проблема: AI внедряют в каждый цех отдельно</h2>-->
+<!--</section>-->
+
+<!--<section class="slide light">-->
+<!--    <h2>Три цели этого доклада</h2>-->
+<!--    <ol>-->
+<!--        <li>Показать, что за локальным L2 существует L3 — и он гораздо ближе к настоящей автономности</li>-->
+<!--        <li>Объяснить, почему путь «каждый цех сам» ведёт в тупик</li>-->
+<!--        <li>Дать конкретные рекомендации для перехода L2 → L3</li>-->
+<!--    </ol>-->
+<!--    <div class="highlight-box">-->
+<!--        Остановиться на L2 — это выбор. Но он должен быть <b>осознанным</b>.-->
+<!--    </div>-->
+<!--</section>-->
+
+<!-- ========================= SECTION: МАТРИЦА ========================= -->
+<section class="slide section">
+    <h2 class="shout">Матрица зрелости AI в SDLC 2026</h2>
+</section>
+
+<section class="slide clear">
+    <h2 style="font-size: 36px;">Пять уровней: от чата до автономности</h2>
+    <table class="matrix-table">
+        <tr>
+            <th style="width:55px;">Ур.</th>
+            <th style="width:180px;">Название</th>
+            <th>Суть</th>
+            <th style="width:130px;">Ось автономности</th>
+        </tr>
+        <tr>
+            <td class="lvl">L0</td>
+            <td><b>Без AI</b></td>
+            <td>Команда работает без AI-инструментов</td>
+            <td style="text-align:center;">—</td>
+        </tr>
+        <tr>
+            <td class="lvl">L1</td>
+            <td><b>Чат</b></td>
+            <td>ChatGPT / Claude web, copy-paste, нет связи с кодом</td>
+            <td style="text-align:center;">▪</td>
+        </tr>
+        <tr class="focus">
+            <td class="lvl" style="color:#4b86c2;">L2</td>
+            <td><b>Локальный агент</b></td>
+            <td>Агент в IDE/терминале, активная сессия, HITL на каждом шаге</td>
+            <td style="text-align:center;">▪▪</td>
+        </tr>
+        <tr class="focus">
+            <td class="lvl" style="color:#6f00ff;">L3</td>
+            <td><b>AI Native</b></td>
+            <td>Background-агент, sandbox, evals, HITL только на PR</td>
+            <td style="text-align:center;">▪▪▪</td>
+        </tr>
+        <tr>
+            <td class="lvl" style="color:#cc0000;">L4</td>
+            <td><b>Полная автономность</b></td>
+            <td>Агенты инициируют сами, работают между системами, оркестрация</td>
+            <td style="text-align:center;">▪▪▪▪</td>
+        </tr>
+    </table>
+    <p class="note">Главная ось — автономность. Пересекается с инфраструктурным слоем.</p>
+</section>
+
+<section class="slide light">
+    <h2>L0 и L1: откуда приходят</h2>
+    <div class="two-col">
+        <div class="col-box">
+            <h3>L0 — Без AI</h3>
+            <ul>
+                <li>Осознанный выбор или инерция</li>
+                <li>Иногда продиктован регуляторными ограничениями</li>
+                <li>Отставание нарастает быстро</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h3>L1 — Чат</h3>
+            <ul>
+                <li>ChatGPT/Claude web вне IDE</li>
+                <li>Контекст теряется после сессии</li>
+                <li>Много ручной работы copy-paste</li>
+                <li>Точка входа для большинства команд</li>
+            </ul>
+        </div>
+    </div>
+    <div class="highlight-box">
+        В 2026 автокомплит (Copilot, Codeium) — уже не уровень, это <b>гигиена</b>.<br>
+        Он растворился внутри L1 → L2.
+    </div>
+</section>
+
+<!-- ========================= SECTION: L2 ========================= -->
+<section class="slide section">
+    <h2 class="shout"><span style="color:#7eb3e8;">L2 / Assist</span><br>Агент на машине разработчика</h2>
+</section>
+
+<section class="slide light">
+    <h2><span class="badge-level l2">L2</span> Суть</h2>
+    <ul>
+        <li>Агент запускается в IDE/терминале, работает в <b>активной сессии</b></li>
+        <li>HITL на входе (постановка) и выходе (review каждого изменения)</li>
+        <li>Гранулярность: файл, функция, локальная задача</li>
+        <li>Один человек — одна машина — максимум несколько задач в момент</li>
+    </ul>
+    <div class="two-col" style="margin-top: 14px;">
+        <div class="col-box">
+            <h3>Что работает устойчиво</h3>
+            <ul>
+                <li>Эксплоративная отладка</li>
+                <li>Рефакторинг под надзором</li>
+                <li>Прототипирование и парное программирование</li>
+                <li>Делегирование задач на 1–3 часа</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h3>Когда L2 — стратегия</h3>
+            <ul>
+                <li>Соло-разработчики, малые команды</li>
+                <li>Нет готовности к инфраструктурным инвестициям</li>
+                <li>Нет команды для поддержки runtime</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide light">
+    <h2><span class="badge-level l2">L2</span> Гвозди, которые блокируют переход на L3</h2>
+    <ul class="nail-list">
+        <li>Vendor-specific форматы промптов и плагинов — не выносятся в централизованный runtime</li>
+        <li>Контекст живёт в головах и личных файлах вместо общего SDD</li>
+        <li>Доступы и секреты привязаны к учётке разработчика, а не к роли</li>
+        <li>«Каждый цех — свой контекст, свой стек» — фрагментация инфраструктуры</li>
+    </ul>
+    <div class="warning-box">
+        Эти решения кажутся локальными. Но именно они делают переход на L3<br>
+        революцией, а не эволюцией.
+    </div>
+</section>
+
+<!-- ========================= SECTION: L3 ========================= -->
+<section class="slide section">
+    <h2 class="shout"><span style="color:#b388ff;">L3 / Delegate</span><br>Задача делегируется агенту целиком</h2>
+</section>
+
+<section class="slide light">
+    <h2><span class="badge-level l3">L3</span> Суть</h2>
+    <ul>
+        <li>Background-агенты в <b>централизованном runtime</b>, вне сессии человека</li>
+        <li>HITL только на финальной проверке: PR review, approval</li>
+        <li>Гранулярность: тикет, баг, мелкая фича</li>
+        <li>Длительность: часы, ночи, выходные; параллельно — десятки задач</li>
+    </ul>
+    <div class="two-col" style="margin-top: 14px;">
+        <div class="col-box">
+            <h3>Что становится возможным</h3>
+            <ul>
+                <li>Bulk-разгребание Sentry без участия разработчика</li>
+                <li>Dependency updates по расписанию</li>
+                <li>Alert → fix attempt → PR без человека</li>
+                <li>Self-service для PM / QA / Support</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h3>Целевая метрика L3</h3>
+            <div class="metric-big">70%</div>
+            <p style="font-size:18px; margin:4px 0 0;">задач доходят до PR<br>без HITL внутри потока</p>
+            <p class="note">Уже в конце 2025 были компании с такими показателями</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide clear">
+    <h2 style="font-size: 34px;"><span class="badge-level l3">L3</span> Инфраструктурный минимум</h2>
+    <p style="font-size: 18px; margin: 4px 0 14px; color: #cc0000;"><b>Без этого L3 не существует — есть только фасад</b></p>
+    <div class="infra-grid">
+        <div class="infra-item">
+            <span class="infra-icon">⚙️</span>
+            <span><b>Agent runtime</b> — K8s / serverless / собственная платформа</span>
+        </div>
+        <div class="infra-item">
+            <span class="infra-icon">🔒</span>
+            <span><b>Sandbox</b> — read prod / write staging / политики без секретов</span>
+        </div>
+        <div class="infra-item">
+            <span class="infra-icon">🔑</span>
+            <span><b>Secrets as a service</b> — доступы к роли, не к человеку</span>
+        </div>
+        <div class="infra-item">
+            <span class="infra-icon">📊</span>
+            <span><b>Телеметрия</b> — Langfuse / OpenTelemetry, сквозная трассировка</span>
+        </div>
+        <div class="infra-item">
+            <span class="infra-icon">✅</span>
+            <span><b>Evals</b> — golden set + онлайн-метрики + регрессии агентов</span>
+        </div>
+        <div class="infra-item">
+            <span class="infra-icon">🛡️</span>
+            <span><b>Guardrails</b> — политики, PII, rate limits, бюджеты на задачу</span>
+        </div>
+        <div class="infra-item">
+            <span class="infra-icon">📨</span>
+            <span><b>Очереди и триггеры</b> — Sentry → задача, Jira → задача, webhook → задача</span>
+        </div>
+        <div class="infra-item">
+            <span class="infra-icon">📝</span>
+            <span><b>SDD</b> — сквозной источник контекста для всех агентов команды</span>
+        </div>
+        <div class="infra-item">
+            <span class="infra-icon">🔄</span>
+            <span><b>Версионирование</b> — агенты и промпты как код, релизный цикл</span>
+        </div>
+    </div>
+</section>
+
+<section class="slide light">
+    <h2><span class="badge-level l3">L3</span> Anti-patterns: «L3 с фасадом»</h2>
+    <p style="font-size: 18px; margin-bottom: 10px;">Самое опасное — выглядит как L3, работает как хаос:</p>
+    <ul class="antipattern-list">
+        <li><strong>Background-агенты без evals</strong> — автономно ломают прод</li>
+        <li><strong>Sandbox на честном слове</strong> — инцидент с доступами — вопрос времени</li>
+        <li><strong>Каждый отдел строит свой runtime</strong> — фрагментация × N</li>
+        <li><strong>SDD у каждого свой</strong> — агенты разных команд несовместимы по контексту</li>
+        <li><strong>Нет учёта затрат</strong> — бюджет у LLM-провайдера удваивается без объяснения</li>
+    </ul>
+    <div class="highlight-box">
+        Guardrails и evals — критическая инфраструктура.<br>
+        Не важно, на каком вы уровне: без них вы строите на песке.
+    </div>
+</section>
+
+<!-- ========================= СТОИМОСТЬ L2 vs L3 ========================= -->
+<section class="slide light">
+    <h2>Стоимость: L2 vs L3</h2>
+    <table class="cost-table">
+        <tr>
+            <th>Параметр</th>
+            <th>L2</th>
+            <th>L3</th>
+        </tr>
+        <tr>
+            <td>LLM-расходы</td>
+            <td>Подписка ($20–$100 / чел)</td>
+            <td>API + runtime (растут с задачами)</td>
+        </tr>
+        <tr>
+            <td>Инфра</td>
+            <td>Ноутбук разработчика</td>
+            <td>K8s / serverless + мониторинг</td>
+        </tr>
+        <tr>
+            <td>Команда</td>
+            <td>Не нужна</td>
+            <td>Нужна платформенная команда</td>
+        </tr>
+        <tr>
+            <td>Параллелизм</td>
+            <td>1–3 задачи / человек</td>
+            <td>Десятки задач одновременно</td>
+        </tr>
+    </table>
+    <div class="warning-box">
+        Демпинговые подписки на Claude / Codex — <b>временное окно</b>.<br>
+        Рано или поздно их зажмут или накроет регулятор.<br>
+        Если вы на своих open-source моделях — разницы стоимости L2 vs L3 почти нет.
+    </div>
+</section>
+
+<!-- ========================= SDD ========================= -->
+<section class="slide light">
+    <h2>SDD — сквозная инфраструктура, не инструмент цеха</h2>
+    <p>SDD (Software Design Document / System Design Doc) — это <b>единый источник контекста</b> для всех агентов команды.</p>
+    <ul>
+        <li>Без общего SDD каждый цех плодит своё «облако контекста»</li>
+        <li>Агенты фронта и бэка не понимают контекст друг друга</li>
+        <li>Масштабировать в крупной компании — нетривиально</li>
+    </ul>
+    <div class="highlight-box">
+        SDD — это не документация. Это <b>инфраструктурный слой</b>.<br>
+        Он должен быть сквозным и единым для всей команды.
+    </div>
+    <p class="note">Коллега из Сбербанка расскажет об этом подробнее — внедрение SDD в компанию такого масштаба весьма непросто.</p>
+</section>
+
+<!-- ========================= SECTION: L4 ========================= -->
+<section class="slide section">
+    <h2 class="shout"><span style="color:#ff8888;">L4 / Autonomous</span><br>Агенты инициируют и работают между системами</h2>
+</section>
+
+<section class="slide light">
+    <h2><span class="badge-level l4">L4</span> Суть</h2>
+    <ul>
+        <li>Агенты сами инициируют работу по событиям и бизнес-метрикам</li>
+        <li>Декомпозируют задачи, делегируют sub-агентам, синхронизируются</li>
+        <li>HITL только по эскалации — агент сам решает, когда звать человека</li>
+        <li>Периметр: CRM, биллинг, мониторинг, документация, аналитика</li>
+    </ul>
+    <div class="two-col" style="margin-top:12px;">
+        <div class="col-box">
+            <h3>Путь 1: Кастомные агенты</h3>
+            <ul>
+                <li>Вертикальные агенты через A2A</li>
+                <li>Параллельный поток производства</li>
+                <li>Строится с нуля, рядом с текущим процессом</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h3>Путь 2: Эволюция L3</h3>
+            <ul>
+                <li>Универсальные кодовые агенты L3</li>
+                <li>Обёрнуты оркестрацией (LangGraph, Temporal)</li>
+                <li>Дешевле и эволюционнее</li>
+            </ul>
+        </div>
+    </div>
+    <p class="note">Можно сочетать: кастомные агенты — на доменных задачах, универсальные — на кодовых.</p>
+</section>
+
+<section class="slide light">
+    <h2><span class="badge-level l4">L4</span> Вызовы и референсы</h2>
+    <div class="two-col">
+        <div class="col-box">
+            <h3>Главные вызовы</h3>
+            <ul>
+                <li><b>Sandboxing межсистемных действий</b> — потолок доверия</li>
+                <li><b>Evals на длинных цепочках</b> — комбинаторный взрыв</li>
+                <li><b>Доверие команды и регуляторов</b> — узкое место, не технологическое</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h3>Чем вдохновляться</h3>
+            <ul>
+                <li><b>GitLab Duo Agents</b> (EE) — agent as a feature</li>
+                <li><b>GitHub Agent HQ</b> — оркестрация как первичная сущность</li>
+                <li><b>JetBrains Central</b> — каталог агентов в IDE</li>
+                <li><b>Atlassian Rovo</b> — агенты как роли в коллаборации</li>
+            </ul>
+        </div>
+    </div>
+    <div class="highlight-box">
+        Инфраструктура L4 = L3 + оркестратор с длинной памятью + A2A-протокол + policy engine + multi-agent observability
+    </div>
+</section>
+
+<!-- ========================= СТРАТЕГИЯ ========================= -->
+<section class="slide section">
+    <h2 class="shout">Как двигаться вперёд</h2>
+</section>
+
+<section class="slide light">
+    <h2>L2 и L3 можно строить параллельно</h2>
+    <ul>
+        <li>Большинство из нас уже делают это</li>
+        <li>L2 даёт немедленную отдачу, L3 — масштаб и автономность</li>
+        <li>Важно думать стратегически: переход L3 → L4 закладывается <b>сейчас</b></li>
+    </ul>
+    <div class="two-col" style="margin-top:14px;">
+        <div class="col-box">
+            <h3>Остановиться на L2 — это выбор</h3>
+            <ul>
+                <li>Соло / малая команда</li>
+                <li>Нет инфра-ресурсов</li>
+                <li>Стратегический выбор с осознанными трейдоффами</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h3>Горизонт — L3/L4?</h3>
+            <ul>
+                <li>Архитектурные решения сейчас определяют: эволюция или революция</li>
+                <li>Гвозди L2 делают переход болезненным</li>
+                <li>Начните с инфра-минимума L3</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide light">
+    <h2>С чего начать L3: мелкие задачи</h2>
+    <p>Не обязательно стартовать с крупных эпиков:</p>
+    <ul>
+        <li><b>Review-агент</b> — это уже часть L3 (облачный runtime, без сессии человека)</li>
+        <li><b>Sentry-разгребание</b> — агент разбирает беклог мелких ошибок, создаёт PR</li>
+        <li><b>Dependency updates</b> по расписанию — patch-версии без участия человека</li>
+        <li><b>Security patches</b> — автоматический апдейт и PR на проверку</li>
+    </ul>
+    <div class="highlight-box">
+        Коллеги разгребли огромный технический долг в Sentry,<br>
+        запустив отладку background-агентами за выходные.
+    </div>
+</section>
+
+<!-- ========================= СТРАТЕГИЧЕСКИЙ ТЕЗИС ========================= -->
+<section class="slide light">
+    <h2>Стратегический тезис</h2>
+    <ul>
+        <li>L4 не достигается экспромтом — он <b>закладывается архитектурно на L3</b></li>
+        <li>Если ваш потолок — L2, можно остановиться сознательно</li>
+        <li>Если горизонт — L3/L4, решения сейчас определяют: <b>эволюция или переписывание</b></li>
+    </ul>
+    <div class="two-col" style="margin-top:16px;">
+        <div class="col-box" style="border-left: 4px solid #4b86c2;">
+            <h3 style="color:#4b86c2;">Не тратьте время на</h3>
+            <ul>
+                <li>Vendor-lock инструменты без API</li>
+                <li>«Свой» SDD в каждом цехе</li>
+                <li>Секреты в среде разработчика</li>
+            </ul>
+        </div>
+        <div class="col-box" style="border-left: 4px solid #6f00ff;">
+            <h3 style="color:#6f00ff;">Инвестируйте в</h3>
+            <ul>
+                <li>Общий SDD как инфраструктуру</li>
+                <li>Secrets as a service</li>
+                <li>Централизованные evals и телеметрию</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ========================= FINAL ========================= -->
+<section class="slide slide-final clear">
+    <h2 style="font-size: 45px;">Пожалуйста, оставьте <br> свой отзыв!</h2>
+    <br>
+    <div style="line-height: 130%; font-size: 25px;"><b>Поддубный Иван</b></div>
+    <div style="line-height: 130%;">CTO Вебпрактик</div>
+
+    <img
+        style="margin-right: 30px; margin-top: 25px;"
+        class="place top right"
+        src="pictures/ai-qr.svg"
+        width="250"
+        alt="">
+
+    <img
+        style="margin-left: 30px; margin-bottom: 30px; width: 220px;"
+        class="place left bottom"
+        src="pictures/qr-techlead-stream.png"
+        alt="">
+
+    <img
+        style="margin-right: 50px; margin-bottom: 30px; width: 210px;"
+        class="place right bottom"
+        src="pictures/smalltech.svg"
+        alt="">
+</section>
+
+<footer class="badge">
+    <a href="https://github.com/north-leshiy/rag-techlead">Fork me on GitHub</a>
+</footer>
+
+<div class="progress"></div>
+<script src="shower/shower.js"></script>
+</body>
+</html>
