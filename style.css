@@ -73,10 +73,10 @@
 	display: none;
 }
 
-/*.slide.light {*/
-/*	background: url("./pictures/page.svg") no-repeat;*/
-/*	background-size: contain;*/
-/*}*/
+.slide.light {
+	background: url("./pictures/page.svg") no-repeat;
+	background-size: contain;
+}
 
 /*.slide.dark {*/
 /*	background: #000000 url("./pictures/page-black.svg") no-repeat;*/
@@ -122,7 +122,7 @@
 /* MAIN PAGE */
 .slide-first {
 	color: #ffffff;
-	background: #000000 url("./pictures/walpapper.png") no-repeat;
+	background: #000000 url("./pictures/face.svg") no-repeat;
 	background-size: cover;
 }
 .slide-first .author {
@@ -206,7 +206,7 @@
 
 .section {
 	color: #ffffff;
-	background: #000000 url("./pictures/walpapper.png") no-repeat;
+	background: #000000 url("./pictures/face.svg") no-repeat;
 	background-size: cover;
 	text-align: left;
 }
