@@ -74,7 +74,7 @@
 }
 
 .slide.light {
-	background: url("./pictures/page.svg") no-repeat;
+	background: url("./pictures/page-hl.svg") no-repeat;
 	background-size: contain;
 }
 
@@ -122,7 +122,7 @@
 /* MAIN PAGE */
 .slide-first {
 	color: #ffffff;
-	background: #000000 url("./pictures/face.svg") no-repeat;
+	background: #000000 url("./pictures/face_hl.svg") no-repeat;
 	background-size: cover;
 }
 .slide-first .author {
@@ -154,9 +154,9 @@
 
 /* END SLIDE */
 .slide-final {
-	/*color: #ffffff;*/
-	/*background: #000000 url("./pictures/end-back.svg") no-repeat;*/
-	/*background-size: cover;*/
+	color: #ffffff;
+	background: #000000 url("./pictures/end_back_hl.svg") no-repeat;
+	background-size: cover;
 }
 
 .slide-final p{
@@ -206,7 +206,7 @@
 
 .section {
 	color: #ffffff;
-	background: #000000 url("./pictures/face.svg") no-repeat;
+	background: #000000 url("./pictures/section.svg") no-repeat;
 	background-size: cover;
 	text-align: left;
 }
