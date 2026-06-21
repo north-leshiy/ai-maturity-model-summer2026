@@ -1,19 +1,21 @@
 {
-  "private": true,
-  "scripts": {
-    "pdf": "shower pdf",
-    "serve": "shower serve",
-    "archive": "shower archive",
-    "bundle": "shower bundle",
-    "publish": "shower publish"
-  },
-  "dependencies": {
-    "@shower/ribbon": "^3.5.1",
-    "@shower/core": "^3.3.0",
-    "@shower/material": "^2.3.0"
-
-  },
-  "devDependencies": {
-    "@shower/cli": "^0.3.1"
-  }
+	"private": true,
+	"files": [
+		"pictures/**",
+		"../new/index.html"
+	],
+	"scripts": {
+		"serve": "../new/node_modules/.bin/shower serve",
+		"bundle": "../new/node_modules/.bin/shower bundle",
+		"archive": "../new/node_modules/.bin/shower archive",
+		"pages": "../new/node_modules/.bin/shower pages",
+		"pdf": "../new/node_modules/.bin/shower pdf"
+	},
+	"dependencies": {
+		"@shower/core": "^3.5.1",
+		"@shower/ribbon": "^4.2.0"
+	},
+	"devDependencies": {
+		"@shower/cli": "^1.1.0"
+	}
 }
