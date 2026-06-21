@@ -443,7 +443,7 @@
         <tr><td class="prac-name">Resource &amp; cost limits</td><td class="col-l2"><span class="col-q">?</span></td><td class="col-l3"><span class="col-q">?</span></td></tr>
         <tr><td class="prac-name">Multi-agent coordination</td><td class="col-l2"><span class="col-q">?</span></td><td class="col-l3"><span class="col-q">?</span></td></tr>
         <tr><td class="prac-name">Модельно-независимый harness</td><td class="col-l2"><span class="col-q">?</span></td><td class="col-l3"><span class="col-q">?</span></td></tr>
-        <tr><td class="prac-name">Кодовые агенты (SDK / обёртка)</td><td class="col-l2"><span class="col-q">?</span></td><td class="col-l3"><span class="col-q">?</span></td></tr>
+        <tr><td class="prac-name">Агент с выходом на L3</td><td class="col-l2"><span class="col-q">?</span></td><td class="col-l3"><span class="col-q">?</span></td></tr>
         <tr><td class="prac-name">AI-driven IDP (платформа)</td><td class="col-l2"><span class="col-q">?</span></td><td class="col-l3"><span class="col-q">?</span></td></tr>
     </table>
 </section>
@@ -589,16 +589,17 @@
 </section>
 
 <section class="slide light">
-    <h2 class="">Кодовые агенты</h2>
+    <h2 class="">Кодовый агент с выходом на L3</h2>
     <div class="lvl-plaque">
         <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M1.5 20h21"/></svg>2 ур.</span> <span class="ptag ptag-no">—</span></span>
         <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="3.5" r="1.2"/><path d="M2 12v4M22 12v4"/><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="0.6" fill="currentColor" stroke="none"/></svg>3 ур.</span> <span class="ptag ptag-must">обязательно</span></span>
     </div>
     <ul>
-        <li>OpenCode обещает выпустить удобный SDK в т.ч. для этого уровня</li>
-        <li class="next">Завязываться на Anthropic SDK, конечно, не хочется</li>
-        <li class="next">OpenHands: логика вшита в дизайн, но python</li>
-        <li class="next">Кастомная обертка запускающая любого кодового агента</li>
+        <li>Агенту нужен headless-режим (CLI / SDK), а не только IDE-плагин</li>
+        <li class="next">Поведение плагина и CLI/SDK совпадает 1:1 — иначе L2-настройка не переносится в фон</li>
+        <li class="next">Плагин без (или с несовместимой) консольной/SDK-версией = тупик на пути в L3</li>
+        <li class="next">OpenCode обещает удобный SDK; OpenHands — логика в дизайне, но python; на Anthropic SDK завязываться не хочется</li>
+        <li class="next">Запасной вариант — кастомная обёртка, запускающая любого кодового агента</li>
     </ul>
 </section>
 
@@ -670,7 +671,7 @@
             <td class="col-l3"><span class="ptag ptag-must">критично</span></td>
         </tr>
         <tr>
-            <td class="prac-name">Кодовые агенты (SDK / обёртка)</td>
+            <td class="prac-name">Агент с выходом на L3</td>
             <td class="col-l2"><span class="ptag ptag-no">—</span></td>
             <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
         </tr>
