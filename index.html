@@ -78,6 +78,55 @@
             color: var(--color-grey);
             margin-top: 12px;
         }
+
+        /* PRACTICES MATRIX */
+        .prac-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 17px;
+            margin-top: 2px;
+        }
+        .prac-matrix th {
+            padding: 5px 12px;
+            text-align: left;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #000;
+        }
+        .prac-matrix th.col-l2 { color: #4b86c2; text-align: center; }
+        .prac-matrix th.col-l3 { color: #6f00ff; text-align: center; }
+        .prac-matrix td {
+            padding: 2px 12px;
+            border-bottom: 1px solid #e3e3e3;
+            vertical-align: middle;
+        }
+        .prac-matrix .prac-name { font-weight: bold; }
+        .prac-matrix .col-l2,
+        .prac-matrix .col-l3 { text-align: center; width: 150px; }
+        .prac-matrix .col-l2 { background: rgba(75,134,194,0.06); }
+        .prac-matrix .col-l3 { background: rgba(111,0,255,0.06); }
+
+        .ptag {
+            display: inline-block;
+            min-width: 118px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 2px 10px;
+        }
+        .ptag-no   { color: #b0b0b0; font-weight: normal; }
+        .ptag-soft { background: rgba(75,134,194,0.08); color: #7c9bba; font-weight: normal; }
+        .ptag-plus { background: rgba(75,134,194,0.18); color: #2f6093; }
+        .ptag-must { background: rgba(111,0,255,0.15); color: #6f00ff; }
+        .ptag-base { background: #000; color: #fff; }
+
+        .prac-legend {
+            font-size: 14px;
+            color: var(--color-grey);
+            margin-top: 4px;
+        }
+        .prac-legend .ptag { min-width: auto; margin: 0 4px; }
     </style>
 </head>
 <body class="shower list">
@@ -457,6 +506,68 @@
         <li>Возможно когда-нибудь SourceCraft, GitVerse закроют часть пути, но я не сильно надеюсь</li>
         <li>Большинству из нас придётся её создавать самим</li>
     </ul>
+</section>
+
+
+<section class="slide clear" style="padding: 20px 50px;">
+    <h2 style="font-size: 28px; margin-bottom: 4px; margin-top: 0;">Практики как единая система</h2>
+    <table class="prac-matrix">
+        <tr>
+            <th>Практика</th>
+            <th class="col-l2">2 уровень<br><span style="font-weight:normal;text-transform:none;letter-spacing:0;font-size:13px;">локальный агент</span></th>
+            <th class="col-l3">3 уровень<br><span style="font-weight:normal;text-transform:none;letter-spacing:0;font-size:13px;">облачный runtime</span></th>
+        </tr>
+        <tr>
+            <td class="prac-name">Сквозной SDD</td>
+            <td class="col-l2"><span class="ptag ptag-base">фундамент</span></td>
+            <td class="col-l3"><span class="ptag ptag-base">фундамент</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Quality gates перед merge</td>
+            <td class="col-l2"><span class="ptag ptag-plus">усиливает</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Observability трейсов</td>
+            <td class="col-l2"><span class="ptag ptag-plus">усиливает</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Sandboxing окружений</td>
+            <td class="col-l2"><span class="ptag ptag-plus">желательно</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Action Policy / HITL</td>
+            <td class="col-l2"><span class="ptag ptag-plus">ручной HITL</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Evals: автотесты агентов</td>
+            <td class="col-l2"><span class="ptag ptag-plus">желательно</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">критично</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Resource &amp; cost limits</td>
+            <td class="col-l2"><span class="ptag ptag-soft">собирать данные</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Multi-agent coordination</td>
+            <td class="col-l2"><span class="ptag ptag-no">—</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Кодовые агенты (SDK / обёртка)</td>
+            <td class="col-l2"><span class="ptag ptag-no">—</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Платформа оркестрации</td>
+            <td class="col-l2"><span class="ptag ptag-no">—</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">критично</span></td>
+        </tr>
+    </table>
 </section>
 
 
