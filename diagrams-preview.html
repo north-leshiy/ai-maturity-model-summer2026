@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Диаграммы уровней — превью и выравнивание</title>
+<style>
+  body { margin:0; padding:28px; background:#eceef2; font-family:"Arial",sans-serif; color:#222; }
+  h1 { font-size:20px; margin:0 0 18px; }
+  .row { margin:0 0 22px; }
+  .row .lbl { font-size:13px; color:#666; margin:0 0 6px; font-weight:bold; }
+  /* единый размер рамки для всех диаграмм */
+  .frame {
+    width: 1000px;
+    aspect-ratio: 1230 / 320;
+    border: 1.5px solid #c0392b;     /* рамка холста — видно границы */
+    background: #ffffff;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .frame img { display:block; width:100%; height:100%; position:relative; z-index:1; }
+  /* вертикальные направляющие по центрам стадий: 265/615/965 из 1230 = 21.5% / 50% / 78.5% */
+  .frame .g { position:absolute; top:0; bottom:0; width:0; border-left:1px dashed #2e86de; opacity:.55; z-index:2; }
+  .frame .g1 { left:21.54%; } .frame .g2 { left:50%; } .frame .g3 { left:78.46%; }
+</style>
+</head>
+<body>
+  <h1>Диаграммы уровней — единый холст 1230×320 (рамка показывает границы)</h1>
+
+  <div class="row">
+    <div class="lbl">L0 — classic</div>
+    <div class="frame"><span class="g g1"></span><span class="g g2"></span><span class="g g3"></span><img src="pictures/preview-process-classic.svg" alt="classic"></div>
+  </div>
+
+  <div class="row">
+    <div class="lbl">L1 — chat</div>
+    <div class="frame"><span class="g g1"></span><span class="g g2"></span><span class="g g3"></span><img src="pictures/preview-process-chat.svg" alt="chat"></div>
+  </div>
+
+  <div class="row">
+    <div class="lbl">L2 — local agent</div>
+    <div class="frame"><span class="g g1"></span><span class="g g2"></span><span class="g g3"></span><img src="pictures/preview-process-agent.svg" alt="agent"></div>
+  </div>
+
+  <div class="row">
+    <div class="lbl">L3 — background agent</div>
+    <div class="frame"><span class="g g1"></span><span class="g g2"></span><span class="g g3"></span><img src="pictures/preview-process-background.svg" alt="background"></div>
+  </div>
+
+  <div class="row">
+    <div class="lbl">L4 — e2e</div>
+    <div class="frame"><span class="g g1"></span><span class="g g2"></span><span class="g g3"></span><img src="pictures/preview-process-e2e.svg" alt="e2e"></div>
+  </div>
+</body>
+</html>

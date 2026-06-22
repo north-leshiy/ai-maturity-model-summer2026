@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1230 320" width="1230" height="320" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif">
+<defs>
+  <marker id="g" markerWidth="14" markerHeight="12" refX="7.6" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1.2,1 L8,4.5 L1.2,8" fill="none" stroke="#2f9e3f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <marker id="p" markerWidth="14" markerHeight="12" refX="7.6" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1.2,1 L8,4.5 L1.2,8" fill="none" stroke="#6f00ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<g transform="translate(0.0,44.0)">
+<rect x="115.0" y="124.0" width="1000.0" height="76.0" rx="14" ry="14" fill="#f6f8fb" stroke="#aeb6c4" stroke-width="1.5" stroke-dasharray="4 6"/>
+<text x="101.0" y="162.0" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#737985" text-anchor="end" dominant-baseline="central">Артефакты</text>
+<rect x="115.0" y="16.0" width="300.0" height="200.0" rx="16" ry="16" fill="#ffffff" stroke="#cdd2db" stroke-width="1.5"/>
+<ellipse cx="265.00" cy="77.50" rx="23.00" ry="9.66" fill="none" stroke="#5b6473" stroke-width="2.42"/><path d="M 265.00,45.30 C 271.70,45.30 275.81,53.30 275.81,57.95 C 275.81,65.77 269.54,72.44 265.00,72.44 C 260.46,72.44 254.19,65.77 254.19,57.95 C 254.19,53.30 258.30,45.30 265.00,45.30 Z" fill="#ffffff" stroke="#5b6473" stroke-width="2.42" stroke-linejoin="round"/><text x="265.0" y="101.2" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#737985" text-anchor="middle" dominant-baseline="central">Actor</text>
+<rect x="168.0" y="132.0" width="194.0" height="60.0" rx="12" ry="12" fill="#e9f1fc" stroke="#6aa0d8" stroke-width="1.6"/><text x="265.0" y="162.0" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#28527c" text-anchor="middle" dominant-baseline="central">analyst</text>
+<line x1="427.0" y1="66.0" x2="453.0" y2="66.0" stroke="#2f9e3f" stroke-width="2.2" marker-end="url(#g)" stroke-linecap="round"/>
+<rect x="465.0" y="16.0" width="300.0" height="200.0" rx="16" ry="16" fill="#ffffff" stroke="#cdd2db" stroke-width="1.5"/>
+<ellipse cx="615.00" cy="77.50" rx="23.00" ry="9.66" fill="none" stroke="#5b6473" stroke-width="2.42"/><path d="M 615.00,45.30 C 621.70,45.30 625.81,53.30 625.81,57.95 C 625.81,65.77 619.54,72.44 615.00,72.44 C 610.46,72.44 604.19,65.77 604.19,57.95 C 604.19,53.30 608.30,45.30 615.00,45.30 Z" fill="#ffffff" stroke="#5b6473" stroke-width="2.42" stroke-linejoin="round"/><text x="615.0" y="101.2" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#737985" text-anchor="middle" dominant-baseline="central">Actor</text>
+<rect x="518.0" y="132.0" width="194.0" height="60.0" rx="12" ry="12" fill="#fdeaea" stroke="#df8181" stroke-width="1.6"/><text x="615.0" y="162.0" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#8c2f2f" text-anchor="middle" dominant-baseline="central">dev</text>
+<line x1="777.0" y1="66.0" x2="803.0" y2="66.0" stroke="#2f9e3f" stroke-width="2.2" marker-end="url(#g)" stroke-linecap="round"/>
+<rect x="815.0" y="16.0" width="300.0" height="200.0" rx="16" ry="16" fill="#ffffff" stroke="#cdd2db" stroke-width="1.5"/>
+<ellipse cx="965.00" cy="77.50" rx="23.00" ry="9.66" fill="none" stroke="#5b6473" stroke-width="2.42"/><path d="M 965.00,45.30 C 971.70,45.30 975.81,53.30 975.81,57.95 C 975.81,65.77 969.54,72.44 965.00,72.44 C 960.46,72.44 954.19,65.77 954.19,57.95 C 954.19,53.30 958.30,45.30 965.00,45.30 Z" fill="#ffffff" stroke="#5b6473" stroke-width="2.42" stroke-linejoin="round"/><text x="965.0" y="101.2" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#737985" text-anchor="middle" dominant-baseline="central">Actor</text>
+<rect x="868.0" y="132.0" width="194.0" height="60.0" rx="12" ry="12" fill="#e8f6ea" stroke="#6cbd7a" stroke-width="1.6"/><text x="965.0" y="162.0" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#2f7a3c" text-anchor="middle" dominant-baseline="central">qa</text>
+</g>
+</svg>

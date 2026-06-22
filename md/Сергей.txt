@@ -43,3 +43,6 @@
 - Визуализировать платформу
 
 Role Based SDLC и Agent Based SDLC
+
+Миссии в мультиагентности
+https://www.youtube.com/watch?v=ow1we5PzK-o
