@@ -305,12 +305,12 @@
 		.adc-line b { color: #ffffff; }
 
 		/* ===== "кто на этом уровне?" audience question ===== */
-		.aud-q { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-		.aud-q .aud-icons { display: flex; align-items: center; justify-content: center; gap: 34px; color: #3c1361; margin-bottom: 6px; }
-		.aud-q .aud-icons svg { width: 130px; height: 130px; }
+		.aud-q { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+		.aud-q .aud-icons { display: flex; align-items: center; justify-content: center; gap: 40px; color: #3c1361; margin: 0 0 40px; }
+		.aud-q .aud-icons svg { display: block; width: 120px; height: 120px; }
 		.aud-q .aud-hand { color: #7b2ff7; }
-		.aud-q h2 { font-size: 54px; line-height: 1.1; margin: 0; text-transform: none; }
-		.aud-q .aud-sub { font-size: 24px; color: #6a6a6a; margin-top: 18px; }
+		.aud-q h2 { font-size: 56px; line-height: 1.05; margin: 0; color: #111; text-transform: none; }
+		.aud-q .aud-sub { font-size: 24px; color: #6a6a6a; margin: 22px 0 0; }
     </style>
 </head>
 <body class="shower list">
@@ -361,18 +361,14 @@
             <div style="font-size:15px; color:#666666; margin-top:4px;">Агенты, облако, высокая автономность без HITL</div>
         </div>
     </div>
-    <p style="font-size: 21px; margin-top: 18px;">
-        Сильная неоднородность <br><b>Как вообще понять, где ты находишься?</b>
-    </p>
-</section>
-
-<section class="slide light">
-    <h2>Проблематика</h2>
-    <ul>
-        <li class="next">Большая неоднородность ландшафта. Лидеры отрываются еще сильнее, некоторые еще не начинали.</li>
-        <li class="next">Сильно разные способы решения одних и тех же проблем</li>
-        <li class="next">Много информационного шума, из которого сложно более уверенно строить архитектурную и организационную стратегию</li>
+    <ul style="margin-top: 16px;">
+        <li class="next">Лидеры отрываются ещё сильнее, кто-то ещё не начинал</li>
+        <li class="next">Одни и те же задачи решают совершенно по-разному</li>
+        <li class="next">Много шума → трудно строить архитектурную и орг-стратегию</li>
     </ul>
+    <p class="next" style="font-size: 21px; margin-top: 14px;">
+        <b>Как понять, где ты — и куда двигаться?</b>
+    </p>
 </section>
 
 <section class="slide light">
@@ -499,12 +495,23 @@
 </section>
 
 <section class="slide light">
-    <h2>3 уровень: ai-native, agent-first, background-agents, cloud runtime</h2>
+    <div class="aud-q">
+        <div class="aud-icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M1.5 20h21" /></svg>
+            <svg class="aud-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V4.5a1.5 1.5 0 0 1 3 0V10" /><path d="M12 10V3.5a1.5 1.5 0 0 1 3 0V10" /><path d="M15 10.5V5a1.5 1.5 0 0 1 3 0v7" /><path d="M9 11V8a1.5 1.5 0 0 0-3 0v6a7 7 0 0 0 7 7h1a6 6 0 0 0 6-6v-3" /></svg>
+        </div>
+        <h2>Кто уже на 2 уровне?</h2>
+        <p class="aud-sub">Локальные агенты — Claude Code, Codex</p>
+    </div>
+</section>
+
+<section class="slide light">
+    <h2>3 уровень: ai-native, agent-first, background-agents, server runtime</h2>
     <img class="cover" src="pictures/process-background.svg" alt="">
 </section>
 
 <section class="slide light">
-    <h2>3 уровень: ai-native, agent-first, background-agents, cloud runtime</h2>
+    <h2>3 уровень: ai-native, agent-first, background-agents, server runtime</h2>
     <ul>
         <li class="next">Ключевое: какие-то блоки или все задачи уже могут решаться без участия человека.</li>
         <li class="next">В остальных случаях Human-in-the-loop. Человек по требованию.</li>
@@ -513,6 +520,17 @@
         <li class="next">Поток не ограничен локальным рантаймом локальной машины инженера. Запускай сотни решений задач, ограничение в точках ревью.</li>
         <li class="next">Кейс: доклад на podlodka crew, коллеги за полгода ещё в конце 2025 года делали 70% задач на background-агентах, 30% — fallback на 2 уровень</li>
     </ul>
+</section>
+
+<section class="slide light">
+    <div class="aud-q">
+        <div class="aud-icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2" /><path d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6" fill="currentColor" stroke="none" /></svg>
+            <svg class="aud-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V4.5a1.5 1.5 0 0 1 3 0V10" /><path d="M12 10V3.5a1.5 1.5 0 0 1 3 0V10" /><path d="M15 10.5V5a1.5 1.5 0 0 1 3 0v7" /><path d="M9 11V8a1.5 1.5 0 0 0-3 0v6a7 7 0 0 0 7 7h1a6 6 0 0 0 6-6v-3" /></svg>
+        </div>
+        <h2>Кто уже на 3 уровне?</h2>
+        <p class="aud-sub">Background-агенты, облачный runtime</p>
+    </div>
 </section>
 
 
