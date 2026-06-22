@@ -2,6 +2,7 @@
 	"private": true,
 	"files": [
 		"index.html",
+		"style.css",
 		"pictures/**"
 	],
 	"scripts": {
