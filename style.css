@@ -54,19 +54,20 @@
 /* Пагинация */
 .slide::after {
 	background: none;
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	color: #838383;
 	right: 15px;
 	left: auto;
-	top: 22px;
+	top: 25px;
 	bottom: auto;
 	font-family: "Montserrat", "proxima nova", sans-serif !important;
 	font-size: 18px;
 	width: 42px;
 	height: 42px;
 	padding: 0;
-	text-align: center;
-	line-height: 42px;
+	line-height: 1;
 }
 
 .slide.clear::before {

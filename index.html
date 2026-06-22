@@ -339,9 +339,14 @@
     <ol>
         <li>15+ лет в IT. Прошёл путь fullstack → teamlead → CTO</li>
         <li>CTO в Вебпрактик (150+)</li>
-        <li>Программный комитет: TechLead Conf, CTO Conf, Podlodka Crew, ПыхКонф</li>
-        <li>Организатор Ростовского PHP-сообщества (~500 человек)</li>
-        <li>Активно трансформирую процессы SDLC у себя в компании</li>
+        <li>Программный комитет: AgenticDevConf, TechLead Conf, CTO Conf, Podlodka Crew, ПыхКонф</li>
+        <li>Организатор ростовских сообществ аналитиков и разработчиков</li>
+        <li>Трансформирую SDLC процессы 1.5 года:
+            <ul>
+                <li>Получил 100% adoption среди разработчиков ещё в 2025</li>
+                <li><b>Масштабирую</b> сквозной SDD-процесс на все команды</li>
+            </ul>
+        </li>
     </ol>
 </section>
 
@@ -581,6 +586,15 @@
 </section>
 
 <section class="slide light">
+    <h2 class="">Отложенный архитектурный выбор</h2>
+    <ul>
+        <li class="">Есть принцип <b>Last Responsible Moment</b>: откладывай необратимое решение до момента, когда дальнейшая отсрочка отрезает важную альтернативу</li>
+        <li class="next">Даже если сейчас не идёте в L3 — не закрывайте дверь: развивайте L2 на <b>обратимых</b>, совместимых с L3 инструментах</li>
+        </ul>
+    <p class="note ">Last Responsible Moment — M. &amp; T. Poppendieck, «Lean Software Development» (2003); ср. M. Fowler про обратимость архитектурных решений</p>
+</section>
+
+<section class="slide light">
     <h2 class="">Можно ли перепрыгнуть?</h2>
     <ul>
         <li class="next">В большинстве случаев нет, слишком высокие риски
@@ -670,7 +684,7 @@
             <td class="col-l3"><span class="col-q">?</span></td>
         </tr>
         <tr>
-            <td class="prac-name">AI-driven IDP (платформа)</td>
+            <td class="prac-name">Agent-first IDP (платформа)</td>
             <td class="col-l2"><span class="col-q">?</span></td>
             <td class="col-l3"><span class="col-q">?</span></td>
         </tr>
@@ -820,7 +834,7 @@
         <li class="next">Агент сам гоняет и проверяет результат; окружение умирает после задачи</li>
         <li class="next">У кого уже есть ephemeral-окружения для CI — часть пути сделана</li>
     </ul>
-    <p style="margin:10px 0 2px;"><b style="color:#6f00ff;">Ограничиваем — изоляция:</b></p>
+    <p class="next" style="margin:10px 0 2px;"><b style="color:#6f00ff;">Ограничиваем — изоляция:</b></p>
     <ul style="margin:0; line-height:1.45;">
         <li class="next">Сеть закрыта, только white list</li>
         <li class="next">Read-only критичных файлов и директорий</li>
@@ -841,9 +855,8 @@
                                                                                                                                                                       stroke="none" /></svg>3 ур.</span> <span
             class="ptag ptag-must">обязательно</span></span>
     </div>
-    <p>База:</p>
     <ul>
-        <li class="next">Любой destructive op: drop/truncate, миграции на prod-схеме, force push, удаление файлов >N строк</li>
+        <li class="">Любой destructive op: drop/truncate, миграции на prod-схеме, force push, удаление файлов >N строк</li>
         <li class="next">Установка новых зависимостей (особенно внешних)</li>
         <li class="next">Изменения в security-чувствительных файлах: auth-модули, миграции, .github/workflows, Dockerfile, package.json</li>
     </ul>
@@ -966,7 +979,7 @@
                                                                                                                                                                       stroke="none" /></svg>3 ур.</span> <span
             class="ptag ptag-must">обязательно</span></span>
     </div>
-    <ul>
+    <ul style="font-size: 20px;">
         <li class="next">Агенту нужен headless-режим (CLI / SDK), а не только IDE-плагин</li>
         <li class="next">Поведение плагина и CLI/SDK совпадает 1:1 — иначе L2-настройка не переносится в фон</li>
         <li class="next">Плагин без (или с несовместимой) консольной/SDK-версией = тупик на пути в L3</li>
@@ -974,17 +987,16 @@
             <ul>
                 <li>Agent SDK (claude code cli) / Codex sdk</li>
                 <li>pi.dev</li>
-                <li>pi</li>
                 <li>OpenHands — логика в дизайне, но python;</li>
-                <li>OpenCode обещает sdk но пока не выпустил</li>
-                <li>Всегда можно надстроить skafolding над sdk</li>
+                <li>OpenCode обещает sdk, но пока не выпустил</li>
+                <li>Всегда можно надстроить skafolding над cli</li>
             </ul>
         </li>
     </ul>
 </section>
 
 <section class="slide light">
-    <h2 class="">AI-driven IDP (платформа)</h2>
+    <h2 class="">Agent-first IDP (платформа)</h2>
     <div class="lvl-plaque">
         <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
                                                                                                                                                                               height="12" rx="1.5" /><path
@@ -1078,7 +1090,7 @@
             <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
         </tr>
         <tr>
-            <td class="prac-name">AI-driven IDP (платформа)</td>
+            <td class="prac-name">Agent-first IDP (платформа)</td>
             <td class="col-l2"><span class="ptag ptag-no">—</span></td>
             <td class="col-l3"><span class="ptag ptag-must">критично</span></td>
         </tr>
