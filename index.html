@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Уровни зрелости AI в SDLC 2026</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/index.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="./pictures/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="./pictures/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./pictures/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./pictures/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./pictures/favicon-16x16.png">
+    <style>
+		.nail-list li {
+			color: #cc0000;
+		}
+
+		.nail-list li::before {
+			color: #cc0000 !important;
+		}
+
+		.antipattern-list li {
+			font-size: 20px;
+			line-height: 1.6;
+		}
+
+		.antipattern-list li strong {
+			color: #cc0000;
+		}
+
+		.cost-table th {
+			padding: 10px 14px;
+			text-align: left;
+			background: #000000;
+			color: #ffffff;
+		}
+
+		.cost-table td {
+			padding: 10px 14px;
+			border-bottom: 1px solid #dddddd;
+			vertical-align: top;
+		}
+
+		.cost-table tr:nth-child(even) td {
+			background: rgba(0, 0, 0, 0.04);
+		}
+
+		.matrix-table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 18px;
+		}
+
+		.matrix-table th {
+			padding: 10px 10px;
+			background: linear-gradient(90deg, #6f00ff 0%, #000000 100%);
+			/*color: #fff;*/
+			text-align: left;
+		}
+
+		.matrix-table td {
+			padding: 9px 10px;
+			border-bottom: 1px solid #dddddd;
+			vertical-align: middle;
+		}
+
+		.matrix-table tr:nth-child(even) td { background: rgba(0, 0, 0, 0.04); }
+
+		.matrix-table .lvl { font-weight: bold; font-size: 20px; text-align: center; }
+
+		.matrix-table .focus { background: rgba(111, 0, 255, 0.08) !important; }
+
+		.col-box h3 {
+			font-size: 20px;
+			margin: 0 0 10px;
+			color: #000000;
+		}
+
+		.col-box ul {
+			font-size: 18px;
+			line-height: 1.5;
+			margin: 0;
+			padding-left: 18px;
+		}
+
+		.note {
+			font-size: 17px;
+			color: var(--color-grey);
+			margin-top: 12px;
+		}
+
+		/* PRACTICES MATRIX */
+		.prac-matrix {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 17px;
+			margin-top: 2px;
+		}
+
+		.prac-matrix th {
+			padding: 5px 12px;
+			text-align: left;
+			font-size: 14px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			border-bottom: 1px solid #d8d8d8;
+		}
+
+		.prac-matrix th.col-l2 { color: #4b86c2; text-align: center; }
+
+		.prac-matrix th.col-l3 { color: #6f00ff; text-align: center; }
+
+		.prac-matrix td {
+			padding: 6px 12px;
+			border-bottom: 1px solid #e3e3e3;
+			vertical-align: middle;
+			line-height: 1.5;
+		}
+
+		.prac-matrix .prac-name { font-weight: bold; }
+
+		.prac-matrix .col-l2,
+		.prac-matrix .col-l3 { text-align: center; width: 150px; }
+
+		.prac-matrix .col-l2 { background: rgba(75, 134, 194, 0.06); }
+
+		.prac-matrix .col-l3 { background: rgba(111, 0, 255, 0.06); }
+
+		.ptag {
+			display: inline-block;
+			min-width: 118px;
+			font-size: 13px;
+			font-weight: bold;
+			border-radius: 20px;
+			padding: 2px 10px;
+		}
+
+		.ptag-no { color: #b0b0b0; font-weight: normal; }
+
+		.ptag-soft { background: rgba(75, 134, 194, 0.08); color: #7c9bba; font-weight: normal; }
+
+		.ptag-plus { background: rgba(75, 134, 194, 0.18); color: #2f6093; }
+
+		.ptag-must { background: rgba(111, 0, 255, 0.15); color: #6f00ff; }
+
+		.ptag-base { background: #000000; color: #ffffff; }
+
+		.prac-legend {
+			font-size: 14px;
+			color: var(--color-grey);
+			margin-top: 4px;
+		}
+
+		.prac-legend .ptag { min-width: auto; margin: 0 4px; }
+
+		/* per-slide importance plaque */
+		.lvl-plaque {
+			position: absolute;
+			left: 50px;
+			bottom: 34px;
+			display: inline-flex;
+			gap: 22px;
+			align-items: center;
+			margin: 0;
+			padding: 7px 16px;
+			border-radius: 10px;
+			background: rgba(88, 90, 94, 0.06);
+			font-size: 15px;
+		}
+
+		.lvl-plaque .lp { display: inline-flex; align-items: center; gap: 8px; }
+
+		.lvl-plaque .lp-l2 { font-weight: bold; color: #4b86c2; }
+
+		.lvl-plaque .lp-l3 { font-weight: bold; color: #6f00ff; }
+
+		.lvl-plaque .lp-l2 svg,
+		.lvl-plaque .lp-l3 svg { width: 16px; height: 16px; vertical-align: -3px; margin-right: 4px; }
+
+		.lvl-plaque .ptag { min-width: auto; font-size: 13px; }
+
+		/* preview (empty) matrix placeholder */
+		.prac-matrix .col-q {
+			color: #c8c8c8;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 1;
+		}
+
+		.prac-matrix .lvl-ico { display: inline-block; vertical-align: -4px; margin-right: 7px; }
+
+		.prac-matrix .lvl-ico svg { width: 19px; height: 19px; }
+
+		/* ===== talk recommendation cards (horizontal) ===== */
+		.talk-cards { display: flex; flex-direction: row; gap: 18px; margin: 12px 44px 0 0; }
+
+		.talk-card {
+			flex: 1 1 0; min-width: 0;
+			display: flex; flex-direction: column;
+			padding: 14px 18px 16px;
+			border: 1px solid #e2e2e2;
+			border-radius: 14px;
+			background: #fafafa;
+			position: relative;
+		}
+
+		.talk-card.is-today {
+			border: 2px solid #E4032E;
+			background: #ffffff;
+			box-shadow: 0 8px 24px rgba(228, 3, 46, 0.10);
+		}
+
+		.talk-card.is-flagship {
+			border: 2px solid #6f00ff;
+			background: #ffffff;
+			box-shadow: 0 8px 24px rgba(111, 0, 255, 0.10);
+		}
+
+		.talk-head { display: flex; align-items: center; gap: 11px; margin-bottom: 10px; }
+
+		.logo-chip {
+			display: inline-flex; align-items: center; justify-content: center;
+			height: 34px; box-sizing: border-box;
+			background: #15171c; border-radius: 8px;
+			padding: 0 11px;
+		}
+
+		.logo-chip img { height: 20px; width: auto; display: block; }
+
+		.logo-chip.is-icon img { height: 24px; }
+
+		.conf-name { font-size: 14px; font-weight: bold; color: #444444; }
+
+		.flag-tag {
+			align-self: flex-start;
+			display: inline-flex; align-items: center; gap: 6px;
+			font-size: 14px; font-weight: bold;
+			padding: 4px 12px; border-radius: 20px;
+			margin-bottom: 9px;
+			letter-spacing: 0.2px;
+		}
+
+		.flag-tag svg { width: 15px; height: 15px; }
+
+		.flag-today { background: #E4032E; color: #ffffff; }
+
+		.flag-flagship { background: rgba(111, 0, 255, 0.12); color: #6f00ff; }
+
+		.talk-title {
+			font-size: 19px; font-weight: bold; line-height: 1.22;
+			min-height: 70px;
+			margin: 0 0 12px; color: #111111;
+		}
+
+		.talk-bottom { margin-top: auto; }
+
+		.talk-who-row { display: flex; align-items: center; gap: 12px; }
+
+		.talk-photo {
+			width: 50px; height: 50px;
+			border-radius: 50%;
+			object-fit: cover;
+			flex: 0 0 auto;
+			box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+		}
+
+		.talk-who { font-size: 15px; line-height: 1.3; }
+
+		.talk-who b { display: block; color: #1a1a1a; font-size: 16px; }
+
+		.talk-who span { color: #666666; }
+
+		.talk-when { margin-top: 11px; }
+
+		.badge-when {
+			display: inline-block;
+			font-size: 13px; font-weight: bold;
+			padding: 3px 12px; border-radius: 20px;
+			background: rgba(0, 0, 0, 0.07); color: #333333;
+			letter-spacing: 0.3px;
+		}
+
+		/* Agentic Dev Conf bottom mention */
+		.adc-strip {
+			display: flex; align-items: center; gap: 16px;
+			margin: 14px 44px 0 0;
+			padding: 9px 18px;
+			border-radius: 12px;
+			background: linear-gradient(90deg, #2a0a5e 0%, #6f00ff 100%);
+			color: #ffffff;
+		}
+
+		.adc-strip .adc-qr {
+			width: 54px; height: 54px;
+			background: #ffffff; border-radius: 7px; padding: 4px;
+			flex: 0 0 auto; display: block;
+		}
+
+		.adc-logo { height: 26px; width: auto; display: block; flex: 0 0 auto; }
+
+		.adc-line { font-size: 16px; line-height: 1.3; color: #f1e9ff; }
+
+		.adc-line b { color: #ffffff; }
+
+		/* ===== "кто на этом уровне?" audience question ===== */
+		.aud-q { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+		.aud-q .aud-icons { display: flex; align-items: center; justify-content: center; gap: 40px; color: #3c1361; margin: 0 0 40px; }
+		.aud-q .aud-icons svg { display: block; width: 120px; height: 120px; }
+		.aud-q .aud-hand { color: #7b2ff7; }
+		.aud-q h2 { font-size: 56px; line-height: 1.05; margin: 0; color: #111; text-transform: none; }
+		.aud-q .aud-sub { font-size: 24px; color: #6a6a6a; margin: 22px 0 0; }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Уровни зрелости AI в SDLC 2026</h1>
+</header>
+
+<!-- ========================= TITLE ========================= -->
+<section class="slide slide-first clear">
+    <h2>
+        <span class="main-title">Уровни зрелости<br>AI в SDLC</span>
+    </h2>
+    <br>
+    <br>
+    <p class="author">Поддубный Иван</p>
+    <p class="company">CTO Вебпрактик</p>
+    <div>
+        <!--        <img class="main-smalltech-logo place right top" src="pictures/smalltech.svg" width="250" alt="">-->
+    </div>
+</section>
+
+<!-- ========================= КТО Я ========================= -->
+<section class="slide light">
+    <h2>Кто я</h2>
+    <ol>
+        <li>15+ лет в IT. Прошёл путь fullstack → teamlead → CTO</li>
+        <li>CTO в Вебпрактик (150+)</li>
+        <li>Программный комитет: AgenticDevConf, TechLead Conf, CTO Conf, Podlodka Crew, ПыхКонф</li>
+        <li>Организатор ростовских сообществ аналитиков и разработчиков</li>
+        <li>Трансформирую SDLC процессы 1.5 года:
+            <ul>
+                <li>Получил 100% adoption среди разработчиков ещё в 2025</li>
+                <li><b>Масштабирую</b> сквозной SDD-процесс на все команды</li>
+            </ul>
+        </li>
+    </ol>
+</section>
+
+<!-- ========================= ПРОБЛЕМАТИКА ========================= -->
+<section class="slide light">
+    <h2>Ландшафт сегодня</h2>
+    <div style="display: flex; align-items: center; gap: 0; margin: 20px 0 10px; font-size: 19px;">
+        <div style="text-align:center; width:180px; padding:16px 10px; background:#f0f0f0; border-radius:6px 0 0 6px;">
+            <div style="font-size:32px;">😴</div>
+            <div style="margin-top:6px; font-weight:bold;">Только на старте</div>
+            <div style="font-size:15px; color:#666666; margin-top:4px;">Чат, copy-paste,<br>нет системы</div>
+        </div>
+        <div style="flex:1; height:4px; background: linear-gradient(90deg, #cccccc 0%, #6f00ff 100%);"></div>
+        <div style="text-align:center; width:180px; padding:16px 10px; background: rgba(111,0,255,0.1); border-radius:0 6px 6px 0;">
+            <div style="font-size:32px;">🚀</div>
+            <div style="margin-top:6px; font-weight:bold;">Уже в космосе</div>
+            <div style="font-size:15px; color:#666666; margin-top:4px;">Агенты, облако, высокая автономность без HITL</div>
+        </div>
+    </div>
+    <ul style="margin-top: 16px;">
+        <li class="next">Лидеры отрываются ещё сильнее, кто-то ещё не начинал</li>
+        <li class="next">Одни и те же задачи решают совершенно по-разному</li>
+        <li class="next">Много шума → трудно строить архитектурную и орг-стратегию</li>
+    </ul>
+    <p class="next" style="font-size: 21px; margin-top: 14px;">
+        <b>Как понять, где ты — и куда двигаться?</b>
+    </p>
+</section>
+
+<section class="slide light">
+    <h2>Доклад &mdash; попытка задать систему ориентиров</h2>
+    <ul>
+        <li class="next">Понять, где ты сейчас</li>
+        <li class="next">Увидеть, что вообще возможно — и есть ли смысл двигаться дальше</li>
+        <li class="next">Принимать <b>осознанные архитектурные и организационные решения</b></li>
+    </ul>
+</section>
+
+<!-- ========================= SECTION: ПРОБЛЕМА ========================= -->
+<!--<section class="slide section">-->
+<!--    <h2 class="shout">Проблема: AI внедряют в каждый цех отдельно</h2>-->
+<!--</section>-->
+
+<!--<section class="slide light">-->
+<!--    <h2>Три цели этого доклада</h2>-->
+<!--    <ol>-->
+<!--        <li>Показать, что за локальным L2 существует L3 — и он гораздо ближе к настоящей автономности</li>-->
+<!--        <li>Объяснить, почему путь «каждый цех сам» ведёт в тупик</li>-->
+<!--        <li>Дать конкретные рекомендации для перехода L2 → L3</li>-->
+<!--    </ol>-->
+<!--    <div class="highlight-box">-->
+<!--        Остановиться на L2 — это выбор. Но он должен быть <b>осознанным</b>.-->
+<!--    </div>-->
+<!--</section>-->
+
+<!-- ========================= SECTION: МАТРИЦА ========================= -->
+<section class="slide section">
+    <h2 class="shout">Матрица зрелости AI в SDLC 2026</h2>
+</section>
+
+<section class="slide light">
+    <h2>Модель зрелости можно строить по разным осям</h2>
+    <ul>
+        <li class="next">Gartner AI Maturity Model</li>
+        <li class="next">Stanford AI adoption Model</li>
+        <li class="next">Модель процессной и инженерной зрелости</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2>Gartner AI Maturity Model</h2>
+    <ol>
+        <li><b>Awareness</b> — знаем что AI существует</li>
+        <li><b>Active</b> — эксперименты, пилоты</li>
+        <li><b>Operational</b> — AI в продакшене</li>
+        <li><b>Systemic</b> — AI интегрирован в процессы</li>
+        <li><b>Transformational</b> — AI меняет бизнес-модель</li>
+    </ol>
+    <p style="font-size: 18px; color: var(--color-grey);">*Фокус на бизнес-трансформации</p>
+</section>
+
+<section class="slide light">
+    <h2>Stanford AI Adoption Model</h2>
+    <table style="font-size: 18px; width: 100%; border-collapse: collapse; margin: 10px 0 0;">
+        <tr style="background: linear-gradient(90deg, #6f00ff 0%, #000000 100%); color: white;">
+            <th style="padding: 12px 8px; text-align: center; width: 50px;">Ур.</th>
+            <th style="padding: 12px; text-align: left; width: 200px;">Название</th>
+            <th style="padding: 12px; text-align: left;">Описание</th>
+        </tr>
+        <tr style="background: rgba(0,0,0,0.03);">
+            <td style="padding: 10px 8px; text-align: center; border-bottom: 1px solid #dddddd;"><b>L0</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #dddddd;"><b>Без AI</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #dddddd;">Инженеры пишут код самостоятельно, AI не используется</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 8px; text-align: center; border-bottom: 1px solid #dddddd;"><b>L1</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #dddddd;"><b>Точечное использование</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #dddddd;">Личная инициатива. AI локально, в кодовой базе не отражается</td>
+        </tr>
+        <tr style="background: rgba(0,0,0,0.03);">
+            <td style="padding: 10px 8px; text-align: center; border-bottom: 1px solid #dddddd;"><b>L2</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #dddddd;"><b>Систематизированное</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #dddddd;">Командный уровень. Промпты и правила версионируются</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 8px; text-align: center; border-bottom: 1px solid #dddddd;"><b>L3</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #dddddd;"><b>Агентная поддержка</b></td>
+            <td style="padding: 10px; border-bottom: 1px solid #dddddd;">AI выполняет задачи. Скрипты и агенты в репозитории</td>
+        </tr>
+        <tr style="background: rgba(0,0,0,0.03);">
+            <td style="padding: 10px 8px; text-align: center;"><b>L4</b></td>
+            <td style="padding: 10px;"><b>Оркестрированная агентность</b></td>
+            <td style="padding: 10px;">AI управляет процессом. Пайплайны из нескольких AI</td>
+        </tr>
+    </table>
+</section>
+
+
+<section class="slide light">
+    <h2>Модель процессной и инженерной зрелости</h2>
+    <ul>
+        <li class="next">Основная ось: уровень автономности</li>
+        <li class="next">Ориентирована на процесс</li>
+        <li class="next">Сильно связана с инженерным уровнем</li>
+        <li class="next">Должна помогать осмысленно принимать архитектурные решения на каждом уровне</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2>0 уровень: классический процесс без AI</h2>
+    <img class="cover" src="pictures/process-classic.svg" alt="">
+</section>
+
+<section class="slide light">
+    <h2>1 уровень: чат как внешний помощник сотрудника</h2>
+    <img class="cover" src="pictures/process-chat.svg" alt="">
+</section>
+
+<section class="slide light">
+    <h2>2 уровень: локальные агенты</h2>
+    <img class="cover" src="pictures/process-agent.svg" alt="">
+</section>
+
+<section class="slide light">
+    <h2>2 уровень: локальные агенты AI-ASSISTED</h2>
+    <ul>
+        <li class="next">Claude Code, Codex</li>
+        <li class="next">Метафора: усиливаем роли, давая экзоскелет</li>
+        <li class="next">Человек отвечает за результат под ключ</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <div class="aud-q">
+        <div class="aud-icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M1.5 20h21" /></svg>
+            <svg class="aud-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V4.5a1.5 1.5 0 0 1 3 0V10" /><path d="M12 10V3.5a1.5 1.5 0 0 1 3 0V10" /><path d="M15 10.5V5a1.5 1.5 0 0 1 3 0v7" /><path d="M9 11V8a1.5 1.5 0 0 0-3 0v6a7 7 0 0 0 7 7h1a6 6 0 0 0 6-6v-3" /></svg>
+        </div>
+        <h2>Кто уже на 2 уровне?</h2>
+        <p class="aud-sub">Локальные агенты — Claude Code, Codex</p>
+    </div>
+</section>
+
+<section class="slide light">
+    <h2>3 уровень: ai-native, agent-first, background-agents, server runtime</h2>
+    <img class="cover" src="pictures/process-background.svg" alt="">
+</section>
+
+<section class="slide light">
+    <h2>3 уровень: ai-native, agent-first, background-agents, server runtime</h2>
+    <ul>
+        <li class="next">Ключевое: какие-то блоки или все задачи уже могут решаться без участия человека.</li>
+        <li class="next">В остальных случаях Human-in-the-loop. Человек по требованию.</li>
+        <li class="next">Fallback на 2 уровень на сложных кейсах, когда агент не справляется</li>
+        <li class="next">Автономность этого уровня может достигаться только в облаке, когда ты можешь отключать роль, не зависеть от человека и его локального ноутбука.</li>
+        <li class="next">Поток не ограничен локальным рантаймом локальной машины инженера. Запускай сотни решений задач, ограничение в точках ревью.</li>
+        <li class="next">Кейс: доклад на podlodka crew, коллеги за полгода ещё в конце 2025 года делали 70% задач на background-агентах, 30% — fallback на 2 уровень</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <div class="aud-q">
+        <div class="aud-icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2" /><path d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6" fill="currentColor" stroke="none" /></svg>
+            <svg class="aud-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V4.5a1.5 1.5 0 0 1 3 0V10" /><path d="M12 10V3.5a1.5 1.5 0 0 1 3 0V10" /><path d="M15 10.5V5a1.5 1.5 0 0 1 3 0v7" /><path d="M9 11V8a1.5 1.5 0 0 0-3 0v6a7 7 0 0 0 7 7h1a6 6 0 0 0 6-6v-3" /></svg>
+        </div>
+        <h2>Кто уже на 3 уровне?</h2>
+        <p class="aud-sub">Background-агенты, облачный runtime</p>
+    </div>
+</section>
+
+
+<section class="slide light ">
+    <h2>Epam 2 & 3 levels</h2>
+    <img src="pictures/epam-levels.png" class="" alt="">
+</section>
+
+<section class="slide light">
+    <h2>4 уровень: полная автономность, e2e решение</h2>
+    <img width="900" class="cover" src="pictures/process-e2e.svg" alt="">
+</section>
+
+<section class="slide light">
+    <h2>4 уровень: полная автономность, e2e решение</h2>
+    <ul>
+        <li class="next">Метафора: темная фабрика</li>
+        <li class="next">Некоторые компании говорят о том что этого достигли, но в массе это скорее ориентир, чем частый кейс</li>
+    </ul>
+</section>
+
+<section class="slide darc clear" style="background: #000000">
+    <!--    <h2>Метафора фабрики</h2>-->
+    <img src="pictures/fabrica.png" class="cover" alt="">
+</section>
+
+
+<section class="slide section">
+    <h2 class="shout">Стратегическое решение 2 и 3 уровень. <br>& or vs</h2>
+</section>
+
+<section class="slide light">
+    <h2 class="">Можно ли остановиться на 2-м уровне?</h2>
+    <ul>
+        <li class="next">Да, на 2-м уровне (локальные агенты) можно дойти до высокого уровня автономности</li>
+        <li class="next">Но есть потолок: фабрика не сможет работать сама. Нужен ноутбук инженера, который её будет запускать руками.</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">2 (локальные агенты) и 3 (cloud агенты): развиваем параллельно</h2>
+    <ul>
+        <li class="next">В подавляющем большинстве мы сейчас развиваем 2 уровень</li>
+        <li class="next">3 уровень можно развивать параллельно, вынося часть операций в облако.</li>
+        <li class="next">Но именно сейчас есть инструменты, которые прибивают вас гвоздями к 2 уровню, при принятии цели в 3 уровень их нужно избегать</li>
+        <li class="next">В идеале мы должны выбирать инструменты, которые будут работать на обоих уровнях, иметь fallback</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Отложенный архитектурный выбор</h2>
+    <ul>
+        <li class="">Есть принцип <b>Last Responsible Moment</b>: откладывай необратимое решение до момента, когда дальнейшая отсрочка отрезает важную альтернативу</li>
+        <li class="next">Даже если сейчас не идёте в L3 — не закрывайте дверь: развивайте L2 на <b>обратимых</b>, совместимых с L3 инструментах</li>
+        </ul>
+    <p class="note ">Last Responsible Moment — M. &amp; T. Poppendieck, «Lean Software Development» (2003); ср. M. Fowler про обратимость архитектурных решений</p>
+</section>
+
+<section class="slide light">
+    <h2 class="">Можно ли перепрыгнуть?</h2>
+    <ul>
+        <li class="next">В большинстве случаев нет, слишком высокие риски
+            <ul>
+                <li class="next">Отсутствие навыка работы с агентами у ролей</li>
+                <li class="next">Не так просто довести 100% задач, самые сложные проще решить через fallback</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide section">
+    <h2 class="shout">Эволюция инженерных практик <br> 2 -> 3 уровень</h2>
+</section>
+
+<section class="slide clear" style="padding: 20px 50px;">
+    <table class="prac-matrix">
+        <tr>
+            <th>Практика</th>
+            <th class="col-l2"><span class="lvl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4"
+                                                                                                                                                                                      width="18"
+                                                                                                                                                                                      height="12"
+                                                                                                                                                                                      rx="1.5" /><path
+                d="M1.5 20h21" /></svg></span>2 уровень<br><span style="font-weight:normal;text-transform:none;letter-spacing:0;font-size:13px;">локальный агент</span></th>
+            <th class="col-l3"><span class="lvl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8"
+                                                                                                                                                                                      width="16"
+                                                                                                                                                                                      height="12"
+                                                                                                                                                                                      rx="2" /><path
+                d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                          fill="currentColor"
+                                                                                                                                                                          stroke="none" /></svg></span>3 уровень<br><span
+                style="font-weight:normal;text-transform:none;letter-spacing:0;font-size:13px;">облачный runtime</span></th>
+        </tr>
+        <tr>
+            <td class="prac-name">Сквозной SDD</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Quality gates перед merge</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Observability трейсов</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Sandbox: эфемерные окружения + изоляция</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Action Policy / HITL</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Evals: автотесты агентов</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Resource &amp; cost limits</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Multi-agent coordination</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Модельно-независимый harness</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">AI Gateway (LLM-прокси)</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Агент с выходом на L3</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Agent-first IDP (платформа)</td>
+            <td class="col-l2"><span class="col-q">?</span></td>
+            <td class="col-l3"><span class="col-q">?</span></td>
+        </tr>
+    </table>
+</section>
+
+<section class="slide section">
+    <h2 class="shout">Spec Driven Development</h2>
+</section>
+
+<section class="slide light">
+    <h2 class="">Типовая ошибка внедрения AI</h2>
+    <ul>
+        <li class="next">Внедрять агентов 2/3 уровня в каждую роль без синхронизации</li>
+        <li class="next">Чревато дублирующими и мешающими для объединения решениями</li>
+        <li class="next">Наш опыт проектирования</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Правильное решение: СКВОЗНОЙ(!!!) SDD</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-base">фундамент</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-base">фундамент</span></span>
+    </div>
+    <ul>
+        <li class="next">Берем готовый sdd фреймворк (например, openspec) или (зачем-то) пишем свой</li>
+        <li class="next">Настраиваем на свои процессы (он гибок!)</li>
+        <li class="next">Аналитик генерирует спеку агентом</li>
+        <li class="next">Разработчик генерирует ADR/plan агентом</li>
+        <li class="next">Разработчик запускает apply агентом</li>
+        <li class="next">Разработчик/тестировщик генерирует тесты</li>
+        <li class="next">Все в одном общем флоу с общим контекстом!</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">SDD: ближайшие доклады</h2>
+    <div class="talk-cards">
+
+        <div class="talk-card is-today">
+            <div class="talk-head">
+                <span class="logo-chip"><img src="pictures/logo-highload.svg" alt="HighLoad++"></span>
+                <span class="conf-name">Saint HighLoad++ 2026</span>
+            </div>
+            <span class="flag-tag flag-today">СЕГОДНЯ</span>
+            <div class="talk-title">«Битва за урожай: внедряем Spec Driven Development без разрушения процесса»</div>
+            <div class="talk-bottom">
+                <div class="talk-who-row">
+                    <img class="talk-photo" src="pictures/speaker-podolskiy.jpg" alt="Даниил Подольский">
+                    <div class="talk-who"><b>Даниил Подольский</b><span>YADRO</span></div>
+                </div>
+                <div class="talk-when"><span class="badge-when">15:20 · Зал Зелёный</span></div>
+            </div>
+        </div>
+
+        <div class="talk-card is-flagship">
+            <div class="talk-head">
+                <span class="logo-chip is-icon"><img src="pictures/logo-teamlead.svg" alt="TeamLead Conf"></span>
+                <span class="conf-name">Saint TeamLead Conf 2026</span>
+            </div>
+            <span class="flag-tag flag-flagship"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1"/><path d="M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></svg>СКВОЗНОЙ SDD — целиком</span>
+            <div class="talk-title">«Первая ступень AI-native процесса: spec-driven как фундамент для кодовых агентов»</div>
+            <div class="talk-bottom">
+                <div class="talk-who-row">
+                    <img class="talk-photo" src="pictures/speaker-galkin.png" alt="Дмитрий Галкин">
+                    <div class="talk-who"><b>Дмитрий Галкин</b><span>Сбер · внедрение на 20+ команд</span></div>
+                </div>
+                <div class="talk-when"><span class="badge-when">25 июня · 11:40 · Зал Зелёный</span></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="adc-strip">
+        <img class="adc-qr" src="pictures/qr-agenticdevconf.svg" alt="QR · agenticdevconf.ru">
+        <img class="adc-logo" src="pictures/logo-agenticdevconf.png" alt="Agentic Dev Conf 2026">
+        <div class="adc-line"><b>Сквозной SDD</b> и другие AI SDLC доклады — на конференции <b>Agentic Dev Conf</b> → agenticdevconf.ru</div>
+    </div>
+</section>
+
+<section class="slide light">
+    <h2 class="">Quality gates перед merge</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-plus">усиливает</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">обязательно</span></span>
+    </div>
+    <ul>
+        <li class="next">Полный тест-сьют зелёный (включая интеграционные, возможно селективные e2e)</li>
+        <li class="next">Linter / formatter / type-check</li>
+        <li class="next">LLM-judge: соответствует ли патч исходной задаче, нет ли лишних изменений</li>
+        <li class="next">Security scan (SAST, secrets, etc)</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Observability</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-plus">усиливает</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">обязательно</span></span>
+    </div>
+    <ul>
+        <li class="next">Полный трейс каждого run: промпт каждого шага, tool call, результат, итоговый артефакт</li>
+        <li class="next">Бэкенд — LangFuse (или аналог): поиск, сравнение прогонов, метрики</li>
+        <li class="next"><b>Кейс на L2:</b> прикручиваем плагин к локальным агентам разработчиков → экспорт трейсов в общий LangFuse</li>
+        <li class="next">Уже на L2 видим, как агенты реально работают, и копим датасет для evals</li>
+        <li class="next"><b>На L3:</b> трейсинг встроен в background-runtime по умолчанию</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Sandbox: эфемерные окружения + изоляция</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-plus">усиливает</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">обязательно</span></span>
+    </div>
+    <p style="margin:0 0 2px;"><b style="color:#2f6093;">Поднимаем — эфемерное окружение:</b></p>
+    <ul style="margin:0; line-height:1.45;">
+        <li class="next">Запускаемое окружение под задачу: приложение + зависимости + branch/seed-БД</li>
+        <li class="next">Агент сам гоняет и проверяет результат; окружение умирает после задачи</li>
+        <li class="next">У кого уже есть ephemeral-окружения для CI — часть пути сделана</li>
+    </ul>
+    <p class="next" style="margin:10px 0 2px;"><b style="color:#6f00ff;">Ограничиваем — изоляция:</b></p>
+    <ul style="margin:0; line-height:1.45;">
+        <li class="next">Сеть закрыта, только white list</li>
+        <li class="next">Read-only критичных файлов и директорий</li>
+        <li class="next">Динамические секреты, ресурсные лимиты</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Action Policy, правила подключения HITL</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-plus">ручной HITL</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">обязательно</span></span>
+    </div>
+    <ul>
+        <li class="">Любой destructive op: drop/truncate, миграции на prod-схеме, force push, удаление файлов >N строк</li>
+        <li class="next">Установка новых зависимостей (особенно внешних)</li>
+        <li class="next">Изменения в security-чувствительных файлах: auth-модули, миграции, .github/workflows, Dockerfile, package.json</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Evals: покрываем автотестами ai агентов</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-plus">усиливает</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">критично</span></span>
+    </div>
+    <ul>
+        <li class="next">Создаем датасет ваших типовых "золотых" задач и их решений</li>
+        <li class="next">Если был до этого openspec SDD, задача упрощается: на вход подаем change</li>
+        <li class="next">Измеряем качество и регрессы
+            <ul>
+                <li class="next">Смена системных промптов, харнеса</li>
+                <li class="next">Смена модели</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Resource & cost limits</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-soft">собирать данные</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">обязательно</span></span>
+    </div>
+    <ul>
+        <li class="next">Лимиты на токены/задачу на агента</li>
+        <li class="next">Защита по таймауту на долгий run</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Multi-agent coordination</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-no">—</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">обязательно</span></span>
+    </div>
+    <p>Два агента, работающие в одном репо параллельно, должны видеть друг друга (lock на ветку/задачу), иначе будут гонки и переписывание чужих изменений.</p>
+</section>
+
+<section class="slide light">
+    <h2 class="">Модельно-независимый harness</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-plus">желательно</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">критично</span></span>
+    </div>
+    <ul>
+        <li class="next">Абстракция над провайдером: смена модели = смена конфига, а не переписывание</li>
+        <!--        <li class="next">Агентный цикл и tooling не прибиты к одному вендору</li>-->
+        <li class="next">Именно это делает evals осмысленными — один датасет гоняем на разных моделях</li>
+        <li class="next">Защита от vendor lock-in и роста цен</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">AI Gateway (LLM-прокси)</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-plus">усиливает</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">обязательно</span></span>
+    </div>
+    <ul>
+        <li class="next">Единая точка для всего LLM-трафика: общий API ко всем провайдерам</li>
+        <li class="next">Централизованно: ключи, rate limits, бюджеты и учёт затрат</li>
+        <li class="next">Кэш, ретраи, fallback/роутинг между моделями</li>
+        <li class="next">Логи/трейсы запросов из коробки → стыкуется с Observability и evals</li>
+        <li class="next">LiteLLM, OpenRouter, Portkey, Helicone, Cloudflare AI Gateway</li>
+        <li class="next">Вместе с моделенезависимым harness даёт полную независимость от вендора</li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Кодовый агент с выходом на L3</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-no">—</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">обязательно</span></span>
+    </div>
+    <ul style="font-size: 20px;">
+        <li class="next">Агенту нужен headless-режим (CLI / SDK), а не только IDE-плагин</li>
+        <li class="next">Поведение плагина и CLI/SDK совпадает 1:1 — иначе L2-настройка не переносится в фон</li>
+        <li class="next">Плагин без (или с несовместимой) консольной/SDK-версией = тупик на пути в L3</li>
+        <li class="next">Основные варианты
+            <ul>
+                <li>Agent SDK (claude code cli) / Codex sdk</li>
+                <li>pi.dev</li>
+                <li>OpenHands — логика в дизайне, но python;</li>
+                <li>OpenCode обещает sdk, но пока не выпустил</li>
+                <li>Всегда можно надстроить skafolding над cli</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide light">
+    <h2 class="">Agent-first IDP (платформа)</h2>
+    <div class="lvl-plaque">
+        <span class="lp"><span class="lp-l2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"
+                                                                                                                                                                              height="12" rx="1.5" /><path
+            d="M1.5 20h21" /></svg>2 ур.</span> <span class="ptag ptag-no">—</span></span>
+        <span class="lp"><span class="lp-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16"
+                                                                                                                                                                              height="12" rx="2" /><path
+            d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                      fill="currentColor"
+                                                                                                                                                                      stroke="none" /></svg>3 ур.</span> <span
+            class="ptag ptag-must">критично</span></span>
+    </div>
+    <ul>
+        <li class="next">Gitlab duo пытается сделать ее часть (только Enterprise Edition)</li>
+        <li class="next">Возможно когда-нибудь SourceCraft, GitVerse закроют часть пути, но я не сильно надеюсь</li>
+        <li class="next">Большинству из нас придётся её создавать самим</li>
+    </ul>
+</section>
+
+
+<section class="slide clear" style="padding: 20px 50px;">
+    <table class="prac-matrix">
+        <tr>
+            <th>Практика</th>
+            <th class="col-l2"><span class="lvl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4"
+                                                                                                                                                                                      width="18"
+                                                                                                                                                                                      height="12"
+                                                                                                                                                                                      rx="1.5" /><path
+                d="M1.5 20h21" /></svg></span>2 уровень<br><span style="font-weight:normal;text-transform:none;letter-spacing:0;font-size:13px;">локальный агент</span></th>
+            <th class="col-l3"><span class="lvl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8"
+                                                                                                                                                                                      width="16"
+                                                                                                                                                                                      height="12"
+                                                                                                                                                                                      rx="2" /><path
+                d="M12 8V5" /><circle cx="12" cy="3.5" r="1.2" /><path d="M2 12v4M22 12v4" /><circle cx="9" cy="13.5" r="0.6" fill="currentColor" stroke="none" /><circle cx="15" cy="13.5" r="0.6"
+                                                                                                                                                                          fill="currentColor"
+                                                                                                                                                                          stroke="none" /></svg></span>3 уровень<br><span
+                style="font-weight:normal;text-transform:none;letter-spacing:0;font-size:13px;">облачный runtime</span></th>
+        </tr>
+        <tr>
+            <td class="prac-name">Сквозной SDD</td>
+            <td class="col-l2"><span class="ptag ptag-base">фундамент</span></td>
+            <td class="col-l3"><span class="ptag ptag-base">фундамент</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Quality gates перед merge</td>
+            <td class="col-l2"><span class="ptag ptag-plus">усиливает</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Observability трейсов</td>
+            <td class="col-l2"><span class="ptag ptag-plus">усиливает</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Sandbox: эфемерные окружения + изоляция</td>
+            <td class="col-l2"><span class="ptag ptag-plus">усиливает</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Action Policy / HITL</td>
+            <td class="col-l2"><span class="ptag ptag-plus">ручной HITL</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Evals: автотесты агентов</td>
+            <td class="col-l2"><span class="ptag ptag-plus">усиливает</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">критично</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Resource &amp; cost limits</td>
+            <td class="col-l2"><span class="ptag ptag-soft">собирать данные</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Multi-agent coordination</td>
+            <td class="col-l2"><span class="ptag ptag-no">—</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Модельно-независимый harness</td>
+            <td class="col-l2"><span class="ptag ptag-plus">желательно</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">критично</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">AI Gateway (LLM-прокси)</td>
+            <td class="col-l2"><span class="ptag ptag-plus">усиливает</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Агент с выходом на L3</td>
+            <td class="col-l2"><span class="ptag ptag-no">—</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">обязательно</span></td>
+        </tr>
+        <tr>
+            <td class="prac-name">Agent-first IDP (платформа)</td>
+            <td class="col-l2"><span class="ptag ptag-no">—</span></td>
+            <td class="col-l3"><span class="ptag ptag-must">критично</span></td>
+        </tr>
+    </table>
+</section>
+
+
+<section class="slide light">
+    <h2 class="">Заходим в L3 с лёгких сценариев</h2>
+    <ol style="line-height: 1.5;">
+        <li><b>Консультации по реализации</b> — агент прорабатывает подход и варианты, <br> ничего не мержит</li>
+        <li><b>Первичное расследование инцидента</b> — сбор логов/трейсов, локализация, гипотезы RCA</li>
+        <li><b>Ревьюер</b> — авто-ревью PR: замечания и риски, решение за человеком</li>
+        <li><b>Починка flaky-тестов</b> — изолированно, результат проверяется тем же тестом</li>
+        <li><b>Мелкие баги</b> — с готовым репро/падающим тестом, узкий scope</li>
+    </ol>
+</section>
+
+
+<section class="slide clear">
+    <h2 style="font-size: 36px;">Пять уровней: от чата до автономности</h2>
+
+    <p class="note">Главная ось — автономность. Пересекается с инфраструктурным слоем.</p>
+</section>
+
+<!-- ========================= СТРАТЕГИЧЕСКИЙ ТЕЗИС ========================= -->
+<section class="slide light">
+    <h2>Выводы</h2>
+    <ul>
+        <li class="next">Стратегически определите, собираетесь ли идти в L2+</li>
+        <li class="next">Если горизонт — L3/L4, решения сегодня определяют: <b>эволюция или переписывание</b></li>
+        <li class="next">Внедряйте AI в SDLC сквозным образом, не пускайте на самотек в разных цехах</li>
+    </ul>
+</section>
+
+<!-- ========================= FINAL ========================= -->
+<section class="slide slide-final clear">
+    <h2 style="font-size: 45px; color: #ffffff">Пожалуйста, оставьте <br> свой отзыв!</h2>
+    <br>
+    <div style="line-height: 130%; font-size: 25px;"><b>Поддубный Иван</b></div>
+    <div style="line-height: 130%;">CTO Вебпрактик</div>
+
+    <img
+        style="margin-right: 30px; margin-top: 25px;"
+        class="place top right"
+        src="pictures/qr-code-hl.svg"
+        width="250"
+        alt="">
+
+    <img
+        style="margin-left: 30px; margin-bottom: 30px; width: 220px;"
+        class="place left bottom"
+        src="pictures/qr-techlead-stream.png"
+        alt="">
+</section>
+
+<footer class="badge">
+    <a href="https://github.com/north-leshiy/rag-techlead">Fork me on GitHub</a>
+</footer>
+
+<div class="progress"></div>
+<script src="shower/index.js"></script>
+</body>
+</html>
