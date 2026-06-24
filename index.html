@@ -216,6 +216,12 @@
 			box-shadow: 0 8px 24px rgba(111, 0, 255, 0.10);
 		}
 
+		.talk-card.is-rec {
+			border: 2px solid #cfd3da;
+			background: #ffffff;
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+		}
+
 		.talk-head { display: flex; align-items: center; gap: 11px; margin-bottom: 10px; }
 
 		.logo-chip {
@@ -245,6 +251,8 @@
 		.flag-today { background: #E4032E; color: #ffffff; }
 
 		.flag-flagship { background: rgba(111, 0, 255, 0.12); color: #6f00ff; }
+
+		.flag-rec { background: rgba(0, 0, 0, 0.07); color: #555555; }
 
 		.talk-title {
 			font-size: 19px; font-weight: bold; line-height: 1.22;
@@ -577,6 +585,7 @@
     <ul>
         <li>Да, на 2-м уровне (локальные агенты) можно дойти до высокого уровня автономности</li>
         <li class="next">Но есть потолок: фабрика не сможет работать сама. Нужен ноутбук инженера, который её будет запускать руками.</li>
+        <li class="next">Если вы идете в <b>small/tiny teams</b> это ваша страховка от bus factor</li>
     </ul>
 </section>
 
@@ -709,6 +718,10 @@
     </ul>
 </section>
 
+<section class="slide darc clear" style="background: #000000">
+    <img src="pictures/mosti.jpg" class="cover" alt="">
+</section>
+
 <section class="slide light">
     <h2 class="">Правильное решение: СКВОЗНОЙ(!!!) SDD</h2>
     <div class="lvl-plaque">
@@ -737,35 +750,35 @@
     <h2 class="">SDD: ближайшие доклады</h2>
     <div class="talk-cards">
 
-        <div class="talk-card is-today">
+        <div class="talk-card is-rec">
             <div class="talk-head">
                 <span class="logo-chip"><img src="pictures/logo-highload.svg" alt="HighLoad++"></span>
                 <span class="conf-name">Saint HighLoad++ 2026</span>
             </div>
-            <span class="flag-tag flag-today">СЕГОДНЯ</span>
+            <span class="flag-tag flag-rec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor"/></svg>СМОТРИМ В ЗАПИСИ</span>
             <div class="talk-title">«Битва за урожай: внедряем Spec Driven Development без разрушения процесса»</div>
             <div class="talk-bottom">
                 <div class="talk-who-row">
                     <img class="talk-photo" src="pictures/speaker-podolskiy.jpg" alt="Даниил Подольский">
                     <div class="talk-who"><b>Даниил Подольский</b><span>YADRO</span></div>
                 </div>
-                <div class="talk-when"><span class="badge-when">15:20 · Зал Зелёный</span></div>
+                <div class="talk-when"><span class="badge-when">Доклад уже прошёл — смотрим в записи</span></div>
             </div>
         </div>
 
-        <div class="talk-card is-flagship">
+        <div class="talk-card is-today">
             <div class="talk-head">
                 <span class="logo-chip is-icon"><img src="pictures/logo-teamlead.svg" alt="TeamLead Conf"></span>
                 <span class="conf-name">Saint TeamLead Conf 2026</span>
             </div>
-            <span class="flag-tag flag-flagship"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1"/><path d="M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></svg>СКВОЗНОЙ SDD — целиком</span>
+            <span class="flag-tag flag-today">СЕГОДНЯ · СРАЗУ ПОСЛЕ ЭТОГО ДОКЛАДА</span>
             <div class="talk-title">«Первая ступень AI-native процесса: spec-driven как фундамент для кодовых агентов»</div>
             <div class="talk-bottom">
                 <div class="talk-who-row">
                     <img class="talk-photo" src="pictures/speaker-galkin.png" alt="Дмитрий Галкин">
                     <div class="talk-who"><b>Дмитрий Галкин</b><span>Сбер · внедрение на 20+ команд</span></div>
                 </div>
-                <div class="talk-when"><span class="badge-when">25 июня · 11:40 · Зал Зелёный</span></div>
+                <div class="talk-when"><span class="badge-when">Сразу после этого доклада · Зал Зелёный</span></div>
             </div>
         </div>
 
@@ -1134,7 +1147,7 @@
     <img
         style="margin-right: 30px; margin-top: 25px;"
         class="place top right"
-        src="pictures/qr-code-hl.svg"
+        src="pictures/qr-code.svg"
         width="250"
         alt="">
 
